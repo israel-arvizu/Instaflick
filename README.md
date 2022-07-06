@@ -1,2 +1,2 @@
-# isragram
+# InstaFlick
 An Instagram Clone 
