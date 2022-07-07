@@ -7,9 +7,13 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    bio = db.Column(db.Text)
+    followers = db.Column(db.Integer, nullable=False)
+    following = db.Column(db.Integer, nullable=False)
 
     @property
     def password(self):
@@ -27,4 +31,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email
+            'bio': self.bio
+            'followers': self.followers
+            'following': self.following
         }
