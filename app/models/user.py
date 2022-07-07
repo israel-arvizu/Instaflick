@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
+from .comments import Comment
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -30,8 +30,11 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
-            'bio': self.bio
-            'followers': self.followers
-            'following': self.following
+            'email': self.email,
+            'bio': self.bio,
+            'followers': self.followers,
+            'following': self.following,
         }
+
+    comments = db.relationship("Comment", back_populates='users', cascade="all, delete-orphan")
+    likes = db.relationship("Like", back_populates='users', cascade="all, delete-orphan")
