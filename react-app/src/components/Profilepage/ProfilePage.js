@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {useSelector} from 'react-redux'
+import UserNavBar from '../UserNavBar/UserNavBar';
 
-class ProfilePage extends Component {
-    render() {
+function ProfilePage() {
+    const user = useSelector(state => state.session.user)
+
         return (
             <div>
+                <UserNavBar user={user}/>
                 <div className='top-profile-header'>
                     ProfilePicture
-                    <h2>Name</h2>
+                    <h2>{user.username}</h2>
                     <div className='profile-info-section'>
                         <span> 0 posts</span>
-                        <span> 0 followers</span>
-                        <span> 0 following</span>
+                        <span> {user.followers} followers</span>
+                        <span> {user.following} following</span>
                     </div>
                     <div className='profile-name-bio-section'>
-                        <p>Name</p>
-                        <p>Bio</p>
+                        <p>{user.name}</p>
+                        <p>Bio{user.bio}</p>
                     </div>
                 </div>
                 <hr></hr>
@@ -31,7 +35,6 @@ class ProfilePage extends Component {
                 </div>
             </div>
         );
-    }
 }
 
 export default ProfilePage;
