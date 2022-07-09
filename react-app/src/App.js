@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import PostCreation from './components/PostComponents/PostCreation';
 import User from './components/User';
 import Homepage from './components/HomePage_Comp./Homepage';
 import { authenticate } from './store/session';
@@ -41,6 +42,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/:user/' exact={true} >
           <ProfilePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/new' exact={true}>
+          <PostCreation />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
