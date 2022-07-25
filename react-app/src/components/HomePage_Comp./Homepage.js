@@ -9,7 +9,7 @@ function Homepage()  {
     <div>
         <UserNavBar user={user}/>
         <div id='home-post-left-container'>
-          <h2>POSTS</h2>
+          <h2>POSTs</h2>
         </div>
         <div id='home-left-container'>
           <div id='home-profile-section'>
