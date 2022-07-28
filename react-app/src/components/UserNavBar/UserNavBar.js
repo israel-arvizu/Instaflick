@@ -1,31 +1,52 @@
-import React from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+import NavDropDown from './NavDropDown';
+import './UserNavBar.css'
 
 function UserNavBar({user}) {
-        return (
-            <div className='nav-bar-conatiner'>
-                <div>
-                    LOGO
-                </div>
-                <div>
-                    SearchBar
-                </div>
-                <nav>
-                    <NavLink to='/home'>
-                        <i class="fa-solid fa-house"></i>
-                    </NavLink>
-                    <NavLink to='/posts/new'>
-                        <i class="fa-regular fa-square-plus"></i>
-                    </NavLink>
-                    <NavLink to={`${user.username}`}>
-                        <i class="fa-regular fa-circle"></i>
-                    </NavLink>
-                    <LogoutButton />
-                </nav>
+    const [dropDown, setDropDown] = useState(false)
+    const ref = useRef()
+    useEffect(() => {
+        const checkIfClickedOutside = (e) => {
+            if(dropDown && ref.current && !ref.current.contains(e.target)){
+                setDropDown(false)
+            }
+        }
+        document.addEventListener("click", checkIfClickedOutside);
+        return () => {
+            document.removeEventListener("click", checkIfClickedOutside);
+        }
+    }, [dropDown])
 
+    return (
+        <div className='nav-bar-container'>
+            <div className='nav-bar-content'>
+                <div id='logo-nav-bar-container'>
+                    <img id='nav-logo-image' src='/images/Instaflick-logo.png' alt='logo'/>
+                </div>
+                <div id='nav-bar-search-container'>
+                    <input
+                    type='text'
+                    placeholder='Search'
+                    ></input>
+                </div>
+                <nav id='nav-bar-buttons-container'>
+                    <NavLink to='/home' style={{color: 'black'}}>
+                        <i class="fa-solid fa-house fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "25px"}}></i>
+                    </NavLink>
+                    <NavLink to='/posts/new' style={{color: 'black'}}>
+                        <i class="fa-regular fa-square-plus fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "27px"}}></i>
+                    </NavLink>
+                    {/* <NavLink to={`${user.username}`}> */}
+                    <div onClick={() => setDropDown(!dropDown)} ref={ref}>
+                        <i class="fa-regular fa-circle fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "25px", cursor: "pointer"}}></i>
+                        {dropDown && <NavDropDown/>}
+                    </div>
+                    {/* </NavLink> */}
+                </nav>
             </div>
-        );
+        </div>
+    );
 }
 
 export default UserNavBar;

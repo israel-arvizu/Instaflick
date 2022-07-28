@@ -8,6 +8,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [buttonText, setButtonText] = useState('Log In')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -19,11 +20,20 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    setButtonText('Log In as Demo')
+    setEmail('demo@demo.com')
+    setPassword('demoPassword123')
+  }
+
   const updateEmail = (e) => {
+    setButtonText('Log In')
     setEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
+    setButtonText('Log In')
     setPassword(e.target.value);
   };
 
@@ -32,7 +42,10 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='body-auth-container'>
+    <div className='overlay'>
+      <div className='right-picture-container'>
+        <img src='/images/InstaFlick-Home-Pic.JPG'></img>
+      </div>
       <div className='content-container'>
         <div className='top-form-container'>
           <div id='logo-container-login'>
@@ -68,15 +81,37 @@ const LoginForm = () => {
                   required
                 />
               </div>
+              <div id='logo-container-login'>
+                <button id='login-form-submit-btn' type='submit'>{buttonText}</button>
+              </div>
             </div>
-            <button type='submit'>Login</button>
           </form>
+          <div className='login-form-break-container'>
+            <div className='login-form-line'></div>
+            <div id='login-form-break-text'> OR </div>
+            <div className='login-form-line'></div>
+          </div>
+          <div className='login-form-container-links'>
+            <div>
+              <button id='login-form-demo-btn' onClick={demoLogin}>Log in as Demo User</button>
+            </div>
+            <div>
+              <a href='/about-us' id='about-us-login-text'>About Us</a>
+            </div>
+          </div>
         </div>
         <div className='bottom-form-container'>
-          <div>
-              <span>Dont have an account?</span>
-              <a href='/sign-up'>Sign-Up</a>
+          <div id='bottom-form-login-content'>
+              <span id='button-form-right-text'>Dont have an account?</span>
+              <a href='/sign-up' id='button-form-signup-text'>Sign Up</a>
           </div>
+        </div>
+        <div>
+          <p>Get the app.</p>
+        </div>
+        <div className='login-images-container'>
+          <img className='app-store-images-apple' src='/images/apple-store.png'></img>
+          <img className='app-store-images' src='/images/play-store.png'></img>
         </div>
       </div>
     </div>
