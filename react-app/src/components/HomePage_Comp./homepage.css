@@ -1,0 +1,115 @@
+#home-post-left-container{
+    margin: 20px;
+}
+.homepage-layout-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#home-profile-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#home-profile-names{
+    display: flex;
+    flex-direction: column;
+}
+
+#homepage-profile-pic{
+    width: 70px;
+}
+
+.homepage-post-image{
+    width: 472px;
+}
+
+.post-article-container{
+    width: 472px;
+    height: fit-content;
+}
+
+.post-header{
+    width: 472px;
+    height: 58px;
+    border: 1px solid #D6D6D6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+
+#homepage-post-pic{
+    width:65px
+}
+
+.post-bottom-content{
+    border-bottom: 1px solid #D6D6D6;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6;
+    border-top: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 7px;
+    background-color: #FFFFFF;
+}
+
+.post-picture-content{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.post-bottom-comment-sect{
+    border-bottom: 1px solid #D6D6D6;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 12px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 460px;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.post-bottom-comment-box{
+    width: 365px;
+    margin-left: 5px;
+    border: none;
+    color: #8E8E8E;
+    font-size: 15px;
+    background-color: #FFFFFF;
+}
+
+.post-comment-btn{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0095F7;
+}
+
+.post-bottom-comments-head{
+    color: #989898;
+    margin-bottom: 15px;
+
+}
+
+.post-bottom-dateCreated{
+    color: #989898;
+    font-size: small;
+    margin-top: 0px;
+}
+
+.post-comment-btn:hover{
+    cursor: pointer;
+}
