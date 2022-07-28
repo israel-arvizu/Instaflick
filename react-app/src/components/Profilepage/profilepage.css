@@ -1,0 +1,22 @@
+#profilePage-profile-pic{
+    width: 150px;
+    margin-right: 100px;
+}
+
+.top-profile-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilepage-user-info{
+
+}
+
+.profie-single-post{
+    max-width: 15%;
+}
+#profilepage-indv-post{
+    width: 100%;
+}

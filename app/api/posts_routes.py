@@ -60,3 +60,12 @@ def getPosts():
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
     return jsonify(recentPosts)
+
+
+@post_routes.route('/<int:id>')
+@login_required
+def userPosts(id):
+    posts = Post.query.filter(Post.userId == id).all();
+    posts = list(posts);
+    recentPosts = [post.to_dict() for post in posts]
+    return jsonify(recentPosts)

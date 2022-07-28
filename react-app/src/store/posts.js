@@ -1,5 +1,6 @@
 const NEW_POST = 'posts/NEW_POST';
 const LOAD_POSTS = 'posts/LOAD_RECENT_POST';
+const LOAD_USERS_POST = 'posts/LOAD_USERS_POST'
 
 //ACTIONS
 const setPost = (post) => ({
@@ -12,6 +13,10 @@ const loadPosts = (posts) => ({
   payload: posts
 })
 
+const usersPost = (posts) => ({
+  type: LOAD_USERS_POST,
+  payload: posts
+})
 
 //THUNKER
 export const createPost = (postData) => async (dispatch) => {
@@ -55,6 +60,24 @@ export const getRecentPost = () => async (dispatch) => {
 
 };
 
+export const getUsersPost = (userId) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${userId}`)
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(usersPost(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+
+}
+
 let initialState = {}
 export default function postReducer(state=initialState, action) {
     let newState;
@@ -65,6 +88,9 @@ export default function postReducer(state=initialState, action) {
         case LOAD_POSTS:
             newState = {...state, recentPosts: action.payload}
             return newState;
+        case LOAD_USERS_POST:
+            newState = {...state, userPosts: action.payload}
+            return newState
         default:
             return state;
     }
