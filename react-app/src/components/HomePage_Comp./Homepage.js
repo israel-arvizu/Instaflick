@@ -38,23 +38,27 @@ function Homepage()  {
                     <img src='/images/ProfilePicture.JPG' id='homepage-post-pic' alt='Profile Picture'/>
                     <p>{post.userId}</p>
                   </div>
-                  <div>
+                  <div className='post-picture-content'>
                     <img src={post.photoUrl} className='homepage-post-image'/>
                   </div>
                   <div className='post-bottom-content'>
                     <div className='favorite-buttons-container'>
-                      <i class="fa-regular fa-heart"></i>
-                      <i class="fa-regular fa-comment"></i>
+                      <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
+                      <i class="fa-regular fa-comment fa-xl"></i>
                     </div>
                     <p>{post.likes} likes</p>
                     <p>{post.postBio}</p>
-                    <p>View all {post.comments} comments</p>
-                    <p>{post.dateCreated}</p>
+                    <p className='post-bottom-comments-head'>View all {post.comments} comments</p>
+                    <p className='post-bottom-dateCreated'>{post.dateCreated}</p>
                   </div>
-                  <div>
+                  <div className='post-bottom-comment-sect'>
+                    <i class="fa-regular fa-face-smile fa-xl" style={{marginRight: '5px', marginLeft: '7px'}}></i>
                     <form>
-                      <input type='text' placeholder='Add a comment...'/>
-                      <button>Post</button>
+                      <input
+                      type='text'
+                      className='post-bottom-comment-box'
+                      placeholder='Add a comment...'/>
+                      <button className='post-comment-btn'>Post</button>
                     </form>
                   </div>
                 </div>
