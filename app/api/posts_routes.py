@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from datetime import datetime
+from sqlalchemy import desc, text
+from datetime import datetime, date
 from app.forms.post_form import PostForm
 from app.models import Post, db
 from app.aws_upload import (
@@ -50,3 +51,12 @@ def createPost():
     db.session.add(newPost)
     db.session.commit()
     return newPost.to_dict()
+
+
+@post_routes.route('/get')
+@login_required
+def getPosts():
+    posts = Post.query.order_by(desc(Post.dateCreated)).limit(10);
+    posts = list(posts);
+    recentPosts = [post.to_dict() for post in posts]
+    return jsonify(recentPosts)

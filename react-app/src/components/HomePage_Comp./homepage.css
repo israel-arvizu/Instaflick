@@ -1,0 +1,53 @@
+#home-post-left-container{
+    margin: 20px;
+}
+.homepage-layout-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#home-profile-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#home-profile-names{
+    display: flex;
+    flex-direction: column;
+}
+
+#homepage-profile-pic{
+    width: 70px;
+}
+
+.homepage-post-image{
+    width: 472px;
+}
+
+.post-article-container{
+    width: 472px;
+    height: fit-content;
+}
+
+.post-header{
+    width: 472px;
+    height: 58px;
+    border: 1px solid #D6D6D6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+
+#homepage-post-pic{
+    width:65px
+}
+
+.post-bottom-content{
+    border-bottom: 1px solid #D6D6D6;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6;
+}
