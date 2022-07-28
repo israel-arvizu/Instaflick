@@ -45,11 +45,12 @@
 
 .dropdown-container{
     position: absolute;
-    top: 60px;
+    top: 72px;
     width: 200px;
     padding: 1rem;
     border: 1px solid lightgray;
     transform: translateX(-70%);
+    background-color: white;
 }
 
 .dropdown-list-content{

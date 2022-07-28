@@ -40,7 +40,7 @@ function UserNavBar({user}) {
                     {/* <NavLink to={`${user.username}`}> */}
                     <div onClick={() => setDropDown(!dropDown)} ref={ref}>
                         <i class="fa-regular fa-circle fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "25px", cursor: "pointer"}}></i>
-                        {dropDown && <NavDropDown/>}
+                        {dropDown && <NavDropDown user={user}/>}
                     </div>
                     {/* </NavLink> */}
                 </nav>
