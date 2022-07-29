@@ -64,9 +64,6 @@ function Homepage()  {
                 </div>
               )
             })}
-            {/* {
-              <h2>{recentPost[0].postBio}</h2>
-            } */}
           </div>
           <div id='home-left-container'>
             <div id='home-profile-section'>
