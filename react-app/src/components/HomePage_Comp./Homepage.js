@@ -20,7 +20,7 @@ function Homepage()  {
   if(recentPost === undefined){
     return null
   }
-  console.log(recentPost)
+
   return (
     <>
         <UserNavBar user={user}/>
