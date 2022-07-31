@@ -11,10 +11,12 @@ export default function Modal({onClose, post}){
             </div>
             <div className='modal-content'>
                 <div className='modal-image'>
-                    <img src={post.photoUrl}/>
+                    <img src={post.photoUrl} className='modal-image-content'/>
                 </div>
                 <div className='modal-commment-section'>
-
+                    <div>
+                        Comments:
+                    </div>
                 </div>
             </div>
         </div>

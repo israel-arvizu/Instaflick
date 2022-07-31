@@ -13,6 +13,9 @@
     margin: auto;
     margin-top: 10px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 body{
@@ -24,4 +27,20 @@ body{
     position: absolute;
     right: 15px;
     top: 15px;
+}
+
+.modal-image{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: black;
+    justify-content: center;
+}
+
+.modal-image-content{
+    width: 100%;
+}
+
+.modal-commment-section{
+    width: 50%;
 }

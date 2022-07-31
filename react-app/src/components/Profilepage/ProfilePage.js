@@ -51,17 +51,13 @@ function ProfilePage() {
                     </div>
                 </div>
             </div>
-            <hr></hr>
             <div className='bottom-body-profile-post'>
-                <div>
-                    <p>Posts</p>
-                </div>
-                <div>
+                <div className='post-container-block'>
                     {usersPost.map((post) => {
                         return (
                             <>
                                 <div className={`profie-single-post`} id={`post-${post.id}`} style={{cursor: 'pointer'}} onClick={(e) => selectPost(post)}>
-                                    <img src={post.photoUrl} id='profilepage-indv-post' alt='Post'/>
+                                    <img src={post.photoUrl} className='profilepage-indv-post' alt='Post'/>
                                 </div>
                             </>
                         )
