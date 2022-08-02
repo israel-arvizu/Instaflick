@@ -69,3 +69,18 @@ def userPosts(id):
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
     return jsonify(recentPosts)
+
+@post_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def deletePost(id):
+    req = request.get_json()
+    user = req
+
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+
+    posts = Post.query.filter(Post.userId == user).all();
+    posts = list(posts);
+    recentPosts = [post.to_dict() for post in posts]
+    return jsonify(recentPosts)

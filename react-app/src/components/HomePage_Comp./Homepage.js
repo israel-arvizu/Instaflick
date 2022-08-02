@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import UserNavBar from '../UserNavBar/UserNavBar';
+import AddComment from '../comments';
 import { getRecentPost } from '../../store/posts';
 import './homepage.css'
 
@@ -51,16 +52,7 @@ function Homepage()  {
                     <p className='post-bottom-comments-head'>View all {post.comments} comments</p>
                     <p className='post-bottom-dateCreated'>{post.dateCreated}</p>
                   </div>
-                  <div className='post-bottom-comment-sect'>
-                    <i class="fa-regular fa-face-smile fa-xl" style={{marginRight: '5px', marginLeft: '7px'}}></i>
-                    <form>
-                      <input
-                      type='text'
-                      className='post-bottom-comment-box'
-                      placeholder='Add a comment...'/>
-                      <button className='post-comment-btn'>Post</button>
-                    </form>
-                  </div>
+                  <AddComment />
                 </div>
               )
             })}
@@ -71,7 +63,7 @@ function Homepage()  {
                 <div id='home-profile-names'>
                   <div>{user.name}</div>
                   <div>{user.username}</div>
-                </div>
+              </div>
             </div>
             <div>
                 <span>Suggested For You</span>

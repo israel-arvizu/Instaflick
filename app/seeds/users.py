@@ -1,18 +1,31 @@
 from app.models import db, User
-
+from werkzeug.security import generate_password_hash
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        name='SpongeBob DemoPants',
+        username='SpongeBob',
+        email='demo@demo.com',
+        hashed_password=generate_password_hash('demoPassword123'),
+        bio="Hello Friends! Its me SpongeBob!",
+        profile_picture='https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_Pillow16inX16inPRTGENSLG16B_00043_RO_grande.jpg?v=1563223169',
+        followers=0,
+        following=0)
+
+    patrick = User(
+        name='Patrick Star',
+        username='Patrick',
+        email='patrick@demo.com',
+        hashed_password=generate_password_hash('Gnumx12@'),
+        bio="Hi Guys! I love to be in my rock and play with friends! Bestfriend: SpongeBob!",
+        profile_picture='https://static.wikia.nocookie.net/nickelodeon-movies/images/7/7e/Patrick_Star.png/revision/latest?cb=20180107193038',
+        followers=0,
+        following=0)
+
 
     db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(patrick)
 
     db.session.commit()
 

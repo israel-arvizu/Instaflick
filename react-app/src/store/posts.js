@@ -42,6 +42,28 @@ export const createPost = (postData) => async (dispatch) => {
 
 };
 
+export const deletePost = (id, userId) => async (dispatch) => {
+  console.log('DELETING', userId)
+  const response = await fetch(`/api/posts/delete/${id}`, {
+    method: 'DELETE',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userId)
+  })
+
+  if (response.ok){
+    const data = await response.json()
+    dispatch(usersPost(data));
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export const getRecentPost = () => async (dispatch) => {
   const response = await fetch('/api/posts/get')
 

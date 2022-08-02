@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import UserNavBar from '../UserNavBar/UserNavBar';
 import { getUsersPost } from '../../store/posts';
-import Modal from '../../postModal';
+import Modal from '../postModal'
 import './profilepage.css'
 
 function ProfilePage() {

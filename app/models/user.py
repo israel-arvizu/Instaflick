@@ -11,9 +11,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    profile_picture = db.Column(db.String(999))
     bio = db.Column(db.Text)
     followers = db.Column(db.Integer, nullable=False)
     following = db.Column(db.Integer, nullable=False)
+
+
+    user_posts = db.relationship("Post", back_populates="userPost", cascade="all, delete")
+    user_comments = db.relationship("Comment", back_populates='usersComments', cascade="all, delete")
+    likes = db.relationship("Like", back_populates='users', cascade="all, delete")
+
 
     @property
     def password(self):
@@ -32,10 +39,8 @@ class User(db.Model, UserMixin):
             'name' : self.name,
             'username': self.username,
             'email': self.email,
+            'profile_picture': self.profile_picture,
             'bio': self.bio,
             'followers': self.followers,
             'following': self.following,
         }
-
-    comments = db.relationship("Comment", back_populates='users', cascade="all, delete-orphan")
-    likes = db.relationship("Like", back_populates='users', cascade="all, delete-orphan")
