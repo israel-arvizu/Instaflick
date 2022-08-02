@@ -3,20 +3,24 @@ from flask_login import login_required, current_user
 from sqlalchemy import desc, text
 from datetime import datetime, date
 from app.forms.post_form import PostForm
-from app.models import Post, db
+from app.models import Post, User, db
 from app.aws_upload import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 post_routes = Blueprint('posts', __name__)
 
 
-@post_routes.route('/new', methods={"post"})
+@post_routes.route('/new', methods=["post"])
 @login_required
 def createPost():
     form  = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    form['createdAt'].data = datetime.now()
-    form['updatedAt'].data = datetime.now()
+
+    now = datetime.now()
+    date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    print('This is date_time----------------------------------------', date_time)
+    form['createdAt'].data = date_time
+    form['updatedAt'].data = date_time
 
 
     if "image" not in request.files:
@@ -45,7 +49,7 @@ def createPost():
         postBio = form['caption'].data,
         likeCount = 0,
         commentCount = 0,
-        dateCreated = form['createdAt'].data
+        dateCreated = date_time
     )
 
     db.session.add(newPost)
@@ -56,9 +60,11 @@ def createPost():
 @post_routes.route('/get')
 @login_required
 def getPosts():
-    posts = Post.query.order_by(desc(Post.dateCreated)).limit(10);
+    posts = Post.query.join(User, Post.userId==User.id).order_by(desc(Post.dateCreated)).limit(10);
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
+    print('----------------------------------')
+    print(recentPosts)
     return jsonify(recentPosts)
 
 

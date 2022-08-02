@@ -44,13 +44,13 @@ function PostCreation() {
                             accept="image/jpeg"
                             onChange={addImage}
                              />
-                            <button type='submit'>Done</button>
                             <label>bio:</label>
                             <input
                              type='text'
                              name='postBio'
                              onChange={e => setBio(e.target.value)}
                              />
+                            <button type='submit'>Done</button>
                         </form>
 
                     </div>

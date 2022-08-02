@@ -3,13 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserNavBar from '../UserNavBar/UserNavBar';
 import AddComment from '../comments';
 import { getRecentPost } from '../../store/posts';
+import Modal from '../../components/postModal'
 import './homepage.css'
 
 function Homepage()  {
   const user = useSelector(state => state.session.user)
   const dipatch = useDispatch()
   const [errors, setErrors] = useState([])
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedPost, setSelectedPost] = useState(undefined)
   const recentPost = useSelector(state => state.posts.recentPosts)
+
+  function selectPost(post){
+    setSelectedPost(post)
+    setModalOpen(true)
+  }
+
+  function closeModal() {
+    setModalOpen(false)
+  }
 
   useEffect(() => {
     const data = dipatch(getRecentPost())
@@ -39,7 +51,7 @@ function Homepage()  {
                     <img src='/images/ProfilePicture.JPG' id='homepage-post-pic' alt='Profile Picture'/>
                     <p>{post.userId}</p>
                   </div>
-                  <div className='post-picture-content'>
+                  <div className='post-picture-content' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>
                     <img src={post.photoUrl} className='homepage-post-image'/>
                   </div>
                   <div className='post-bottom-content'>
@@ -49,10 +61,10 @@ function Homepage()  {
                     </div>
                     <p>{post.likes} likes</p>
                     <p>{post.postBio}</p>
-                    <p className='post-bottom-comments-head'>View all {post.comments} comments</p>
+                    <p className='post-bottom-comments-head' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>View all {post.comments} comments</p>
                     <p className='post-bottom-dateCreated'>{post.dateCreated}</p>
                   </div>
-                  <AddComment />
+                  <AddComment post={post}/>
                 </div>
               )
             })}
@@ -73,6 +85,7 @@ function Homepage()  {
                 </div>
             </div>
           </div>
+          {modalOpen && <Modal post={selectedPost} onClose={closeModal} />}
         </div>
       </>
   );

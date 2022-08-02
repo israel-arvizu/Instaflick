@@ -37,7 +37,7 @@ export default function Modal({onClose, post}){
                         <div>
                             Liked by
                         </div>
-                        <AddComment />
+                        <AddComment post={post}/>
                     </div>
                 </div>
             </div>
