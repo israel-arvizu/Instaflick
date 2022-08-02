@@ -2,13 +2,26 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import UserNavBar from '../UserNavBar/UserNavBar';
 import { getUsersPost } from '../../store/posts';
+import Modal from '../postModal'
 import './profilepage.css'
 
 function ProfilePage() {
     const user = useSelector(state => state.session.user)
     const usersPost = useSelector(state => state.posts.userPosts)
     const [errors, setErrors] = useState([])
+    const [modalOpen, setModalOpen] = useState(false)
+    const [selectedPost, setSelectedPost] = useState(undefined)
     const dispatch = useDispatch()
+
+    function selectPost(post){
+        setSelectedPost(post)
+        setModalOpen(true)
+    }
+
+    function closeModal() {
+        setModalOpen(false)
+    }
+
 
     useEffect(() => {
         const data = dispatch(getUsersPost(user.id))
@@ -16,10 +29,6 @@ function ProfilePage() {
             setErrors(data);
           }
     }, [dispatch])
-
-    function openPost() {
-        console.log('Post opened')
-    }
 
     if(usersPost === undefined){
         return null
@@ -42,21 +51,20 @@ function ProfilePage() {
                     </div>
                 </div>
             </div>
-            <hr></hr>
             <div className='bottom-body-profile-post'>
-                <div>
-                    <p>Posts</p>
-                </div>
-                <div>
+                <div className='post-container-block'>
                     {usersPost.map((post) => {
                         return (
-                            <div className='profie-single-post' onClick={openPost} style={{cursor: 'pointer'}}>
-                            <img src={post.photoUrl} id='profilepage-indv-post' alt='Post'/>
-                            </div>
+                            <>
+                                <div className={`profie-single-post`} id={`post-${post.id}`} style={{cursor: 'pointer'}} onClick={(e) => selectPost(post)}>
+                                    <img src={post.photoUrl} className='profilepage-indv-post' alt='Post'/>
+                                </div>
+                            </>
                         )
                     })}
                 </div>
             </div>
+            {modalOpen && <Modal post={selectedPost} onClose={closeModal} />}
         </div>
     );
 }

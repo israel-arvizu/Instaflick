@@ -13,9 +13,9 @@ class Post(db.Model):
     commentCount = db.Column(db.Integer)
     dateCreated = db.Column(db.Date, nullable=False)
 
-    users = db.relationship("User", backref="users", cascade="all, delete")
-    comments = db.relationship("Comment", back_populates='posts', cascade="all, delete-orphan")
-    likes = db.relationship("Like", back_populates="posts", cascade="all, delete-orphan")
+    userPost = db.relationship("User", back_populates="user_posts")
+    comments = db.relationship("Comment", back_populates='posts', cascade="all, delete")
+    likes = db.relationship("Like", back_populates="posts", cascade="all, delete")
 
     def to_dict(self):
         return {

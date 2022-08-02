@@ -11,7 +11,7 @@ class Comment(db.Model):
     postId = db.Column(db.Integer, db.ForeignKey('posts.id', ondelete='CASCADE'))
     text = db.Column(db.Text, nullable=False)
 
-    users = db.relationship("User", back_populates="comments")
+    usersComments = db.relationship("User", back_populates="user_comments")
     posts = db.relationship("Post", back_populates="comments")
 
 
