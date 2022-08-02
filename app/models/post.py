@@ -11,9 +11,9 @@ class Post(db.Model):
     postBio = db.Column(db.Text)
     likeCount = db.Column(db.Integer, nullable=False)
     commentCount = db.Column(db.Integer)
-    dateCreated = db.Column(db.Date, nullable=False)
+    dateCreated = db.Column(db.DateTime, nullable=False)
 
-    userPost = db.relationship("User", back_populates="user_posts")
+    userPost = db.relationship("User", back_populates="user_posts", lazy='joined')
     comments = db.relationship("Comment", back_populates='posts', cascade="all, delete")
     likes = db.relationship("Like", back_populates="posts", cascade="all, delete")
 
