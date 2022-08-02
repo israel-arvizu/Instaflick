@@ -2,7 +2,6 @@ from collections import UserString
 from .db import db
 
 
-
 class Comment(db.Model):
     __tablename__ = 'comments'
 
@@ -20,5 +19,5 @@ class Comment(db.Model):
             "id": self.id,
             "userId": self.userId,
             "postId": self.postId,
-            "text": self.text
+            "text": self.text,
         }

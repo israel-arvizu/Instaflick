@@ -1,14 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddComment from '../comments'
 import OptionsModal from './optionsModal'
+import { loadPostComments } from '../../store/comments'
 import './modalPost.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Modal({onClose, post}){
+    const dispatch = useDispatch()
     const [optionModal, setOptionModal] = useState(false)
+    const comments = useSelector(state => state.comments.postComments)
+    let postId = post.id
+
+    useEffect(() => {
+        dispatch(loadPostComments(postId))
+    }, [dispatch])
 
     function closeModal(){
         setOptionModal(false)
     }
+
+    if(comments === undefined)
+        return null
+    if(comments !== undefined)
+        console.log(comments)
 
     return (
         <div className='modal-container'>\
@@ -27,7 +41,14 @@ export default function Modal({onClose, post}){
                         </div>
                     </div>
                     <div className='modal-comments-container'>
-                        Comments
+                        {comments.map((comment) => {
+                            return (
+                                <div className='comment-container'>
+                                    {comment.text}
+                                </div>
+                            )
+                        })}
+                        <div>NOthing</div>
                     </div>
                     <div className='modal-add-comments-container'>
                         <div>

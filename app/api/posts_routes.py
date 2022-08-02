@@ -60,11 +60,9 @@ def createPost():
 @post_routes.route('/get')
 @login_required
 def getPosts():
-    posts = Post.query.join(User, Post.userId==User.id).order_by(desc(Post.dateCreated)).limit(10);
+    posts = Post.query.order_by(desc(Post.dateCreated)).limit(10);
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
-    print('----------------------------------')
-    print(recentPosts)
     return jsonify(recentPosts)
 
 
