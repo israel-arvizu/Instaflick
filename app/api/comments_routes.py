@@ -8,6 +8,7 @@ comments_routes = Blueprint('comments', __name__)
 @login_required
 def createComment():
     req = request.get_json()
+    postId = req['postId']
 
     newComment = Comment(
         userId = req['userId'],
@@ -18,7 +19,11 @@ def createComment():
     db.session.add(newComment)
     db.session.commit()
 
-    return newComment.to_dict();
+    comments = Comment.query.filter(Comment.postId == postId).all()
+    comments = list(comments)
+    commentList = [comment.to_dict() for comment in comments]
+
+    return jsonify(commentList);
 
 @comments_routes.route('/post/<int:id>')
 @login_required
