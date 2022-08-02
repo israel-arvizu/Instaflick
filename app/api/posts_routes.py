@@ -10,7 +10,7 @@ from app.aws_upload import (
 post_routes = Blueprint('posts', __name__)
 
 
-@post_routes.route('/new', methods={"post"})
+@post_routes.route('/new', methods=["post"])
 @login_required
 def createPost():
     form  = PostForm()

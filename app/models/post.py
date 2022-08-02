@@ -1,5 +1,6 @@
 from .db import db
 from .likes import Like
+from .user import User
 
 
 class Post(db.Model):
@@ -26,4 +27,5 @@ class Post(db.Model):
             "comments": self.commentCount,
             "likes": self.likeCount,
             "dateCreated": self.dateCreated,
+            "UserPhotoUrl": User.query.get(self.userId).profile_picture
         }
