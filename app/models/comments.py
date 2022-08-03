@@ -1,6 +1,6 @@
 from collections import UserString
 from .db import db
-
+from .user import User
 
 
 class Comment(db.Model):
@@ -20,5 +20,6 @@ class Comment(db.Model):
             "id": self.id,
             "userId": self.userId,
             "postId": self.postId,
-            "text": self.text
+            "text": self.text,
+            "username": User.query.get(self.userId).username
         }

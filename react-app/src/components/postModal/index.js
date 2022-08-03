@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddComment from '../comments'
 import OptionsModal from './optionsModal'
+import { loadPostComments } from '../../store/comments'
 import './modalPost.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Modal({onClose, post}){
+    const dispatch = useDispatch()
     const [optionModal, setOptionModal] = useState(false)
+    const comments = useSelector(state => state.comments.postComments)
+    let postId = post.id
+
+    useEffect(() => {
+        dispatch(loadPostComments(postId))
+    }, [dispatch])
 
     function closeModal(){
         setOptionModal(false)
     }
+
+    if(comments === undefined)
+        return null
 
     return (
         <div className='modal-container'>\
@@ -21,13 +33,21 @@ export default function Modal({onClose, post}){
                 </div>
                 <div className='modal-profile-container'>
                     <div className='top-modal-profile-header'>
-                        <p>{post.userId}</p>
+                        <img src={post.UserPhotoUrl} className='modal-user-photo'/>
                         <div className='modal-post-options' onClick={() => setOptionModal(true)}>
                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                         </div>
                     </div>
                     <div className='modal-comments-container'>
-                        Comments
+                        {comments.map((comment) => {
+                            return (
+
+                                <div className='comment-container'>
+                                    <span>{comment.username}</span>
+                                    <span>{comment.text}</span>
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className='modal-add-comments-container'>
                         <div>
