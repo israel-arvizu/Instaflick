@@ -21,8 +21,6 @@ export default function Modal({onClose, post}){
 
     if(comments === undefined)
         return null
-    if(comments !== undefined)
-        console.log(comments)
 
     return (
         <div className='modal-container'>\
@@ -35,7 +33,7 @@ export default function Modal({onClose, post}){
                 </div>
                 <div className='modal-profile-container'>
                     <div className='top-modal-profile-header'>
-                        <p>{post.userId}</p>
+                        <img src={post.UserPhotoUrl} className='modal-user-photo'/>
                         <div className='modal-post-options' onClick={() => setOptionModal(true)}>
                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                         </div>
@@ -43,12 +41,13 @@ export default function Modal({onClose, post}){
                     <div className='modal-comments-container'>
                         {comments.map((comment) => {
                             return (
+
                                 <div className='comment-container'>
-                                    {comment.text}
+                                    <span>{comment.username}</span>
+                                    <span>{comment.text}</span>
                                 </div>
                             )
                         })}
-                        <div>NOthing</div>
                     </div>
                     <div className='modal-add-comments-container'>
                         <div>

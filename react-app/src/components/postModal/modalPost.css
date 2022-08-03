@@ -108,3 +108,12 @@ body{
 .modal-options-content > div:hover{
     cursor: pointer;
 }
+
+.modal-user-photo{
+    width: 8%;
+    height: 60%;
+    border-radius: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+}
