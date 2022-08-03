@@ -55,7 +55,7 @@ export default function Modal({onClose, post}){
                             <i class="fa-regular fa-comment fa-xl"></i>
                         </div>
                         <div>
-                            Liked by
+                            Liked
                         </div>
                         <AddComment post={post}/>
                     </div>
