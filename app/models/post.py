@@ -27,5 +27,6 @@ class Post(db.Model):
             "comments": self.commentCount,
             "likes": self.likeCount,
             "dateCreated": self.dateCreated,
-            "UserPhotoUrl": User.query.get(self.userId).profile_picture
+            "UserPhotoUrl": User.query.get(self.userId).profile_picture,
+            "OwnerUsername": User.query.get(self.userId).username
         }

@@ -49,6 +49,7 @@ body{
     width: 50%;
     max-width: 500px;
     background-color: white;
+    border-top-right-radius: 10px;
 }
 
 .top-modal-profile-header{
@@ -56,7 +57,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 15px;
     padding-right: 20px;
     border-bottom: 1px solid #EFEFEF;
     border-top-right-radius: 10px;
@@ -110,10 +111,61 @@ body{
 }
 
 .modal-user-photo{
-    width: 8%;
-    height: 60%;
-    border-radius: 100%;
+    width:4vmin;
+    height:4vmin;
+    border-radius:50%;
     object-fit: cover;
     background-position: center;
     background-size: cover;
+}
+
+.modal-header-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.modal-header-username-bold{
+    margin-left: 14px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.comment-container{
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+.modal-comment-image-container{
+    width: 50px;
+    height: 40px;
+}
+
+.comment-image-content{
+    width:4vmin;
+    height:4vmin;
+    border-radius:50%;
+    object-fit: cover;
+    background-position: center;
+}
+
+.comment-content-text{
+    font-size: 14px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-edit-buttons{
+    margin: 5px;
+    margin-left: 0px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #939393
+}
+
+.comment-edit-btn{
+    margin-right: 5px;
 }

@@ -21,5 +21,6 @@ class Comment(db.Model):
             "userId": self.userId,
             "postId": self.postId,
             "text": self.text,
-            "username": User.query.get(self.userId).username
+            "username": User.query.get(self.userId).username,
+            "ownerPhotoUrl": User.query.get(self.userId).profile_picture
         }

@@ -33,6 +33,14 @@
     color: #0095F7;
 }
 
+.post-comments-unactive{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #B8E2FD;
+}
+
 .post-comment-btn:hover{
     cursor: pointer;
 }

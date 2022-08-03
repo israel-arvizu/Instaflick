@@ -9,6 +9,7 @@ export default function Modal({onClose, post}){
     const dispatch = useDispatch()
     const [optionModal, setOptionModal] = useState(false)
     const comments = useSelector(state => state.comments.postComments)
+    const userId = useSelector(state => state.session.user.id)
     let postId = post.id
 
     useEffect(() => {
@@ -33,7 +34,10 @@ export default function Modal({onClose, post}){
                 </div>
                 <div className='modal-profile-container'>
                     <div className='top-modal-profile-header'>
-                        <img src={post.UserPhotoUrl} className='modal-user-photo'/>
+                        <div className='modal-header-user'>
+                            <img src={post.UserPhotoUrl} className='modal-user-photo'/>
+                            <p className='modal-header-username-bold'>{post.OwnerUsername}</p>
+                        </div>
                         <div className='modal-post-options' onClick={() => setOptionModal(true)}>
                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                         </div>
@@ -43,8 +47,21 @@ export default function Modal({onClose, post}){
                             return (
 
                                 <div className='comment-container'>
-                                    <span>{comment.username}</span>
-                                    <span>{comment.text}</span>
+                                    <div className='modal-comment-image-container'>
+                                        <img src={comment.ownerPhotoUrl} className='comment-image-content'/>
+                                    </div>
+                                    <div className='comment-content-text'>
+                                        <div>
+                                            <span style={{marginRight: '5px', fontWeight: '500'}}>{comment.username}</span>
+                                            <span>{comment.text}</span>
+                                        </div>
+                                        {comment.userId === userId ?
+                                                <div className='comment-edit-buttons'>
+                                                    <span className='comment-edit-btn' style={{cursor: 'pointer'}}>Edit</span>
+                                                    <span className='comment-dlt-btn' style={{cursor: 'pointer'}}>Delete</span>
+                                                </div> : null
+                                        }
+                                    </div>
                                 </div>
                             )
                         })}

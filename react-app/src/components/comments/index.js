@@ -11,7 +11,11 @@ export default function AddComment({post}) {
 
     const processComment = async (e) => {
         e.preventDefault()
-        await dispatch(addSingleComment(comment, userId, postId))
+        if(comment.length > 0){
+            await dispatch(addSingleComment(comment, userId, postId))
+            setComment('')
+        }
+
     }
 
     return (
@@ -24,7 +28,7 @@ export default function AddComment({post}) {
                 value={comment}
                 onChange={e => setComment(e.target.value)}
                 placeholder='Add a comment...'/>
-                <button type='submit' className='post-comment-btn'>Post</button>
+                <button type='submit' className={comment.length <= 0 ? 'post-comments-unactive':'post-comment-btn'}>Post</button>
             </form>
         </div>
     )
