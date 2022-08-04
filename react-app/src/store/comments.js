@@ -41,8 +41,8 @@ export const loadPostComments = (postId) => async (dispatch) => {
     }
 }
 
-export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`api/comments/delete/${commentId}`)
+export const deleteComment = (commentId, postId) => async (dispatch) => {
+    const response = await fetch(`api/comments/delete/${postId}/${commentId}`)
 
     if(response.ok){
         const comments = await response.json()

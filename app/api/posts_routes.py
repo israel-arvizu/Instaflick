@@ -18,7 +18,6 @@ def createPost():
 
     now = datetime.now()
     date_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    print('This is date_time----------------------------------------', date_time)
     form['createdAt'].data = date_time
     form['updatedAt'].data = date_time
 

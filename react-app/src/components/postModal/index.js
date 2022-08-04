@@ -22,7 +22,7 @@ export default function Modal({onClose, post}){
     }
 
    const removeComment = (commentId) => {
-        dispatch(deleteComment(commentId))
+        dispatch(deleteComment(commentId, postId))
     }
 
     if(comments === undefined)
