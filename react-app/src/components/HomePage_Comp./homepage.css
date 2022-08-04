@@ -1,6 +1,10 @@
 #home-post-left-container{
     margin: 20px;
 }
+
+#home-right-container{
+    margin-left: 20px;
+}
 .homepage-layout-container{
     display: flex;
     flex-direction: row;
@@ -11,15 +15,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 24px;
 }
 
 #home-profile-names{
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
 }
 
 #homepage-profile-pic{
-    width: 70px;
+    width: 6vmin;
+    height:6vmin;
+    border-radius:50%;
 }
 
 .homepage-post-image{
@@ -39,11 +47,15 @@
     border-top-right-radius: 10px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: #FFFFFF;
 }
 
 #homepage-post-pic{
-    width:65px
+    width:4vmin;
+    height:4vmin;
+    border-radius:50%;
+    margin: 10px;
 }
 
 .post-bottom-content{
@@ -72,4 +84,31 @@
     color: #989898;
     font-size: small;
     margin-top: 0px;
+}
+
+#homepage-post-username{
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+#home-profile-username{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#home-profile-realname{
+    font-size: 14px;
+    margin-top: 3px;
+    color: #949393;
+}
+
+#home-suggestion-container{
+    margin-top: 15px;
+}
+
+#home-suggestions-text{
+    font-weight: 800;
+    font-size: 15px;
+    color: #8f8e8e;
 }

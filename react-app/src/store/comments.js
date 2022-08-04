@@ -41,8 +41,28 @@ export const loadPostComments = (postId) => async (dispatch) => {
     }
 }
 
-export const deleteComment = (commentId) => async (dispatch) => {
-    const response = await fetch(`api/comments/delete/${commentId}`)
+export const deleteComment = (commentId, postId) => async (dispatch) => {
+    const response = await fetch(`api/comments/delete/${postId}/${commentId}`, {
+        method: 'DELETE'
+    })
+
+    if(response.ok){
+        const comments = await response.json()
+        dispatch(loadComments(comments))
+        return null
+    } else {
+        return ['An error occurred. Please refresh and try again']
+    }
+}
+
+export const editComment = (commentId, postId, updComment) => async (dispatch) => {
+    const response = await fetch(`api/comments/edit/${postId}/${commentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({commentId, postId, updComment})
+    })
 
     if(response.ok){
         const comments = await response.json()

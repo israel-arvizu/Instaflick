@@ -21,6 +21,7 @@ function Homepage()  {
 
   function closeModal() {
     setModalOpen(false)
+    dipatch(getRecentPost())
   }
 
   useEffect(() => {
@@ -48,8 +49,8 @@ function Homepage()  {
               return (
                 <div className='post-article-container'>
                   <div className='post-header'>
-                    <img src='/static/ProfilePicture.JPG' id='homepage-post-pic' alt='Profile Picture'/>
-                    <p>{post.userId}</p>
+                    <img src={post.UserPhotoUrl} id='homepage-post-pic' alt='Profile Picture'/>
+                    <p id='homepage-post-username'>{post.OwnerUsername}</p>
                   </div>
                   <div className='post-picture-content' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>
                     <img src={post.photoUrl} className='homepage-post-image'/>
@@ -69,18 +70,17 @@ function Homepage()  {
               )
             })}
           </div>
-          <div id='home-left-container'>
+          <div id='home-right-container'>
             <div id='home-profile-section'>
-                <img src='/static/ProfilePicture.JPG' id='homepage-profile-pic' alt='Profile Picture'/>
+                <img src={user.profile_picture} id='homepage-profile-pic' alt='Profile Picture'/>
                 <div id='home-profile-names'>
-                  <div>{user.name}</div>
-                  <div>{user.username}</div>
+                  <div id='home-profile-username'>{user.name}</div>
+                  <div id='home-profile-realname'>{user.username}</div>
               </div>
             </div>
-            <div>
-                <span>Suggested For You</span>
+            <div id='home-suggestion-container'>
+                <span id='home-suggestions-text'>Suggestions For You</span>
                 <div id='home-suggestion-container'>
-                    <p>User Suggestion section</p>
                     <div>User.map...</div>
                 </div>
             </div>

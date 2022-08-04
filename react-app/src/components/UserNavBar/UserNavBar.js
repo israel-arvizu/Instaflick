@@ -37,12 +37,10 @@ function UserNavBar({user}) {
                     <NavLink to='/posts/new' style={{color: 'black'}}>
                         <i class="fa-regular fa-square-plus fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "27px"}}></i>
                     </NavLink>
-                    {/* <NavLink to={`${user.username}`}> */}
                     <div onClick={() => setDropDown(!dropDown)} ref={ref}>
-                        <i class="fa-regular fa-circle fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "25px", cursor: "pointer"}}></i>
+                        <img src={user.profile_picture} id='nav-bar-user-picture' alt='Profile Picture'/>
                         {dropDown && <NavDropDown user={user}/>}
                     </div>
-                    {/* </NavLink> */}
                 </nav>
             </div>
         </div>
