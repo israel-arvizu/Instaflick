@@ -30,6 +30,7 @@ function ProfilePage() {
           }
     }, [dispatch])
 
+    //CHANGE THIS TO JUST LOAD IN WHAT IS LOADED IN
     if(usersPost === undefined){
         return null
     }
