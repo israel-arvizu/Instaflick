@@ -37,7 +37,7 @@ def loadComments(id):
     commentList = [comment.to_dict() for comment in comments]
     return jsonify(commentList)
 
-@comments_routes.route('/delete/<int:postId>/<int:id>')
+@comments_routes.route('/delete/<int:postId>/<int:id>', methods=['DELETE'])
 @login_required
 def deleteComment(postId, id):
     comnt = Comment.query.get(id)
@@ -51,6 +51,25 @@ def deleteComment(postId, id):
     db.session.commit()
 
     comments = Comment.query.filter(Comment.postId == postId).all()
+    comments = list(comments)
+    commentList = [comment.to_dict() for comment in comments]
+    return jsonify(commentList)
+
+@comments_routes.route('edit/<int:postId>/<int:id>', methods=['PUT'])
+@login_required
+def editComment(postId, id):
+    req = request.get_json()
+
+    commentId = req['commentId']
+    pstId = req['postId']
+    newComment = req['updComment']
+
+    comnt = Comment.query.get(commentId)
+
+    comnt.text = newComment
+    db.session.commit()
+
+    comments = Comment.query.filter(Comment.postId == pstId).all()
     comments = list(comments)
     commentList = [comment.to_dict() for comment in comments]
     return jsonify(commentList)

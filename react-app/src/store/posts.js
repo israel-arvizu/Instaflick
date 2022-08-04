@@ -64,6 +64,24 @@ export const deletePost = (id, userId) => async (dispatch) => {
   }
 }
 
+export const updateCaption = (caption, postId) => async (dispatch) => {
+  const response = await fetch(`api/posts/update/${postId}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({caption, postId})
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(usersPost(data))
+    return null;
+  }else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 export const getRecentPost = () => async (dispatch) => {
   const response = await fetch('/api/posts/get')
 

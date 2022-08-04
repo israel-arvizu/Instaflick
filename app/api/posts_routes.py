@@ -68,7 +68,7 @@ def getPosts():
 @post_routes.route('/<int:id>')
 @login_required
 def userPosts(id):
-    posts = Post.query.filter(Post.userId == id).all();
+    posts = Post.query.filter(Post.userId == id).order_by(Post.dateCreated.desc()).all();
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
     return jsonify(recentPosts)
@@ -84,6 +84,23 @@ def deletePost(id):
     db.session.commit()
 
     posts = Post.query.filter(Post.userId == user).all();
+    posts = list(posts);
+    recentPosts = [post.to_dict() for post in posts]
+    return jsonify(recentPosts)
+
+@post_routes.route('/update/<int:id>', methods=['PUT'])
+@login_required
+def updatePost(id):
+    req = request.get_json()
+    newCaption = req['caption']
+    postId = req['postId']
+
+    post = Post.query.get(postId)
+
+    post.postBio = newCaption;
+    db.session.commit()
+
+    posts = Post.query.filter(Post.userId == post.userId).order_by(Post.dateCreated.desc()).all();
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
     return jsonify(recentPosts)
