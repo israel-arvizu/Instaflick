@@ -44,12 +44,12 @@ const LoginForm = () => {
   return (
     <div className='overlay'>
       <div className='right-picture-container'>
-        <img src='/images/InstaFlick-Home-Pic.JPG'></img>
+        <img src='/static/InstaFlick-Home-Pic.JPG'></img>
       </div>
       <div className='content-container'>
         <div className='top-form-container'>
           <div id='logo-container-login'>
-            <img id='logo-login-image' src='/images/Instaflick-logo.png' alt='logo'/>
+            <img id='logo-login-image' src='/static/Instaflick-logo.png' alt='logo'/>
           </div>
           <form onSubmit={onLogin}>
             <div>
@@ -110,8 +110,8 @@ const LoginForm = () => {
           <p>Get the app.</p>
         </div>
         <div className='login-images-container'>
-          <img className='app-store-images-apple' src='/images/apple-store.png'></img>
-          <img className='app-store-images' src='/images/play-store.png'></img>
+          <img className='app-store-images-apple' src='/static/apple-store.png'></img>
+          <img className='app-store-images' src='/static/play-store.png'></img>
         </div>
       </div>
     </div>
