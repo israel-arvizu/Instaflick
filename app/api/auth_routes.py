@@ -69,6 +69,7 @@ def sign_up():
             password=form.data['password'],
             followers=0,
             following=0,
+            profile_picture='https://i.pinimg.com/736x/4a/cf/16/4acf16a2999a4c6dfdfe03f198b95b13.jpg'
         )
         db.session.add(user)
         db.session.commit()

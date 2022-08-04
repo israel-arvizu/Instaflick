@@ -21,6 +21,7 @@ function Homepage()  {
 
   function closeModal() {
     setModalOpen(false)
+    dipatch(getRecentPost())
   }
 
   useEffect(() => {

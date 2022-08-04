@@ -19,6 +19,10 @@ def createComment():
     db.session.add(newComment)
     db.session.commit()
 
+    post = Post.query.get(postId)
+    post.commentCount = post.commentCount + 1;
+    db.session.commit()
+
     comments = Comment.query.filter(Comment.postId == postId).all()
     comments = list(comments)
     commentList = [comment.to_dict() for comment in comments]
@@ -39,6 +43,11 @@ def deleteComment(postId, id):
     comnt = Comment.query.get(id)
 
     db.session.delete(comnt)
+    db.session.commit()
+
+    post = Post.query.get(postId)
+    post.commentCount = post.commentCount - 1;
+
     db.session.commit()
 
     comments = Comment.query.filter(Comment.postId == postId).all()
