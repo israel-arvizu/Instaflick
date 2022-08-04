@@ -41,6 +41,18 @@ export const loadPostComments = (postId) => async (dispatch) => {
     }
 }
 
+export const deleteComment = (commentId) => async (dispatch) => {
+    const response = await fetch(`api/comments/delete/${commentId}`)
+
+    if(response.ok){
+        const comments = await response.json()
+        dispatch(loadComments(comments))
+        return null
+    } else {
+        return ['An error occurred. Please refresh and try again']
+    }
+}
+
 let initialState = {}
 export default function commentReducer(state = initialState, action) {
     let newState;

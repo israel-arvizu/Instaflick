@@ -22,7 +22,7 @@ function UserNavBar({user}) {
         <div className='nav-bar-container'>
             <div className='nav-bar-content'>
                 <div id='logo-nav-bar-container'>
-                    <img id='nav-logo-image' src='/images/Instaflick-logo.png' alt='logo'/>
+                    <img id='nav-logo-image' src='/static/Instaflick-logo.png' alt='logo'/>
                 </div>
                 <div id='nav-bar-search-container'>
                     <input

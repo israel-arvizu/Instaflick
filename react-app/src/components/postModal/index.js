@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import AddComment from '../comments'
 import OptionsModal from './optionsModal'
 import { loadPostComments } from '../../store/comments'
+import { deleteComment } from '../../store/comments'
 import './modalPost.css'
-import { useDispatch, useSelector } from 'react-redux'
 
 export default function Modal({onClose, post}){
     const dispatch = useDispatch()
@@ -18,6 +19,10 @@ export default function Modal({onClose, post}){
 
     function closeModal(){
         setOptionModal(false)
+    }
+
+   const removeComment = (commentId) => {
+        dispatch(deleteComment(commentId))
     }
 
     if(comments === undefined)
@@ -58,7 +63,7 @@ export default function Modal({onClose, post}){
                                         {comment.userId === userId ?
                                                 <div className='comment-edit-buttons'>
                                                     <span className='comment-edit-btn' style={{cursor: 'pointer'}}>Edit</span>
-                                                    <span className='comment-dlt-btn' style={{cursor: 'pointer'}}>Delete</span>
+                                                    <span className='comment-dlt-btn' style={{cursor: 'pointer'}} onClick={() => removeComment(comment.id)}>Delete</span>
                                                 </div> : null
                                         }
                                     </div>

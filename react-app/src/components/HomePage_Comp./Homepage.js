@@ -48,7 +48,7 @@ function Homepage()  {
               return (
                 <div className='post-article-container'>
                   <div className='post-header'>
-                    <img src='/images/ProfilePicture.JPG' id='homepage-post-pic' alt='Profile Picture'/>
+                    <img src='/static/ProfilePicture.JPG' id='homepage-post-pic' alt='Profile Picture'/>
                     <p>{post.userId}</p>
                   </div>
                   <div className='post-picture-content' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>
@@ -71,7 +71,7 @@ function Homepage()  {
           </div>
           <div id='home-left-container'>
             <div id='home-profile-section'>
-                <img src='/images/ProfilePicture.JPG' id='homepage-profile-pic' alt='Profile Picture'/>
+                <img src='/static/ProfilePicture.JPG' id='homepage-profile-pic' alt='Profile Picture'/>
                 <div id='home-profile-names'>
                   <div>{user.name}</div>
                   <div>{user.username}</div>

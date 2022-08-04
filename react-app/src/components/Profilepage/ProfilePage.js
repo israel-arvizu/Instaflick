@@ -37,7 +37,7 @@ function ProfilePage() {
         <div>
             <UserNavBar user={user}/>
             <div className='top-profile-header'>
-                <img src='/images/profilepagePicture.png' id='profilePage-profile-pic'></img>
+                <img src='/static/profilepagePicture.png' id='profilePage-profile-pic'></img>
                 <div className='profilepage-user-info'>
                     <h2>{user.username}</h2>
                     <div className='profile-info-section'>
