@@ -26,7 +26,7 @@ export default function OptionsModal({closeOptions, closeModal, id, editCaption,
                     <div className="modal-delete-post">
                         <p onClick={() => delePost()} style={{color: 'red', fontWeight: '500'}}>Delete</p>
                     </div>
-                    <div>
+                    <div className="modal-edit-post">
                         <p onClick={() => editPost()}>Edit</p>
                     </div>
                     <div className="modal-goback-post" onClick={() => closeOptions()}>

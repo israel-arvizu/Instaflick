@@ -98,6 +98,7 @@ export const signUp = (name, username, email, password) => async (dispatch) => {
   }
 }
 
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:

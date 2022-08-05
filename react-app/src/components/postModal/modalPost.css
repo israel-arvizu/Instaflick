@@ -86,13 +86,13 @@ body{
 
 .modal-options-content{
     width: 250px;
-    height: 100px;
+    height: 150px;
     background-color: white;
     border-radius: 15px;
 }
 
 .modal-delete-post{
-    height: 50%;
+    height: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,10 +100,18 @@ body{
 }
 
 .modal-goback-post{
-    height: 50%;
+    height: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal-edit-post{
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DBDBDB;
 }
 
 .modal-options-content > div:hover{
