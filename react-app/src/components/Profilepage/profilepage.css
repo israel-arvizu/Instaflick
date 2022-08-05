@@ -1,6 +1,8 @@
 #profilePage-profile-pic{
     width: 150px;
-    margin-right: 100px;
+    margin-left: 80px;
+    margin-right: 80px;
+    max-width: 150px;
 }
 
 .top-profile-header{
@@ -8,6 +10,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .profie-single-post{
@@ -18,7 +21,7 @@
     border-top: 1px solid lightgray;
     margin-top: 25px;
     padding-top: 10px;
-    max-width: fit-content;
+    width: 1000px;
     height: fit-content;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -44,8 +47,68 @@
     filter: brightness(70%);
 }
 
-
 .post-info-overlay{
     position: absolute;
     width: 100%;
+}
+
+#profilePage-profile-pic{
+    width: 15vmin;
+    height: 15vmin;
+    min-width: 160px;
+    min-height: 155px;
+    border-radius:50%;
+}
+
+.profile-short-info-numbers{
+    font-weight: 500;
+}
+
+.profile-short-info-text{
+    font-weight: 300;
+}
+
+.profile-info-section{
+   display: flex;
+   flex-direction: row;
+}
+
+.profile-short-info-container{
+    margin-right: 10%;
+    white-space: nowrap;
+}
+
+.profilepage-user-info{
+    width: 40%;
+    max-width: 600px;
+}
+
+.profile-user-edit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile-user-edit-btn{
+    width: 90px;
+    height: 30px;
+    margin-left: 20px;
+    background-color: transparent;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#profile-username-header{
+    font-weight: 300;
+    font-size: 25px;
+}
+
+#profile-real-name-bold{
+    font-weight: 600;
+    margin: 0px;
+}
+
+.profile-name-bio-section{
+    margin-top: 24px;
 }

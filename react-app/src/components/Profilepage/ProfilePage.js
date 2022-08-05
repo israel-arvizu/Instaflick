@@ -22,7 +22,7 @@ function ProfilePage() {
         setModalOpen(false)
     }
 
-
+    //close
     useEffect(() => {
         const data = dispatch(getUsersPost(user.id))
         if (data) {
@@ -38,16 +38,28 @@ function ProfilePage() {
         <div>
             <UserNavBar user={user}/>
             <div className='top-profile-header'>
-                <img src='/static/profilepagePicture.png' id='profilePage-profile-pic'></img>
+                <img src={user.profile_picture} id='profilePage-profile-pic'></img>
                 <div className='profilepage-user-info'>
-                    <h2>{user.username}</h2>
+                    <div className='profile-user-edit'>
+                        <h2 id='profile-username-header'>{user.username}</h2>
+                        <button id='profile-user-edit-btn'>Edit Profile</button>
+                    </div>
                     <div className='profile-info-section'>
-                        <span> 0 posts</span>
-                        <span> {user.followers} followers</span>
-                        <span> {user.following} following</span>
+                        <div className='profile-short-info-container'>
+                            <span className='profile-short-info-numbers'> {usersPost.length}</span>
+                            <span className='profile-short-info-text'> posts </span>
+                        </div>
+                        <div className='profile-short-info-container'>
+                            <span className='profile-short-info-numbers'> {user.followers}</span>
+                            <span className='profile-short-info-text'> followers </span>
+                        </div>
+                        <div className='profile-short-info-container'>
+                            <span className='profile-short-info-numbers'> {user.following}</span>
+                            <span className='profile-short-info-text'> following </span>
+                        </div>
                     </div>
                     <div className='profile-name-bio-section'>
-                        <p>{user.name}</p>
+                        <p id='profile-real-name-bold'>{user.name}</p>
                         <p>Bio{user.bio}</p>
                     </div>
                 </div>
