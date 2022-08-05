@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { updateProfile } from "../../store/session";
 import './editProfileModal.css'
 
 export default function EditProfile({user, onClose}) {
@@ -28,11 +29,10 @@ export default function EditProfile({user, onClose}) {
             if(!bio){
                 setBio("")
             }
-            if(photo.length <= 0){
-                // dispatch(updateBio(bio))
-                return
-            }
-            // dispatch(updateProfile(photo, bio))
+            let formData = new FormData()
+            formData.append('image', photo)
+            formData.append('bio', bio)
+            dispatch(updateProfile(formData, photo, bio))
             onClose()
         }
     }
