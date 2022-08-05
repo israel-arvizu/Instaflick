@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import UserNavBar from '../UserNavBar/UserNavBar';
 import { getUsersPost } from '../../store/posts';
 import Modal from '../postModal'
+import EditProfile from './editProfileModal';
 import './profilepage.css'
 
 function ProfilePage() {
@@ -10,6 +11,7 @@ function ProfilePage() {
     const usersPost = useSelector(state => state.posts.userPosts)
     const [errors, setErrors] = useState([])
     const [modalOpen, setModalOpen] = useState(false)
+    const [editModal, setEditModal] = useState(false)
     const [selectedPost, setSelectedPost] = useState(undefined)
     const dispatch = useDispatch()
 
@@ -21,6 +23,15 @@ function ProfilePage() {
     function closeModal() {
         setModalOpen(false)
     }
+
+    function submitEditProfile() {
+        setEditModal(true)
+    }
+
+    function closeEditProfileModal() {
+        setEditModal(false)
+    }
+
 
     //close
     useEffect(() => {
@@ -42,7 +53,7 @@ function ProfilePage() {
                 <div className='profilepage-user-info'>
                     <div className='profile-user-edit'>
                         <h2 id='profile-username-header'>{user.username}</h2>
-                        <button id='profile-user-edit-btn'>Edit Profile</button>
+                        <button id='profile-user-edit-btn' onClick={() => submitEditProfile()}>Edit Profile</button>
                     </div>
                     <div className='profile-info-section'>
                         <div className='profile-short-info-container'>
@@ -60,7 +71,7 @@ function ProfilePage() {
                     </div>
                     <div className='profile-name-bio-section'>
                         <p id='profile-real-name-bold'>{user.name}</p>
-                        <p>Bio{user.bio}</p>
+                        <p>{user.bio}</p>
                     </div>
                 </div>
             </div>
@@ -78,6 +89,7 @@ function ProfilePage() {
                 </div>
             </div>
             {modalOpen && <Modal post={selectedPost} onClose={closeModal} />}
+            {editModal && <EditProfile user={user} onClose={closeEditProfileModal}/>}
         </div>
     );
 }
