@@ -112,3 +112,9 @@
 .profile-name-bio-section{
     margin-top: 24px;
 }
+
+#profile-biography-user{
+    margin-top: 5px;
+    font-weight: 300;
+    font-size: 15px;
+}

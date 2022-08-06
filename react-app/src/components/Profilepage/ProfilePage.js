@@ -71,7 +71,7 @@ function ProfilePage() {
                     </div>
                     <div className='profile-name-bio-section'>
                         <p id='profile-real-name-bold'>{user.name}</p>
-                        <p>{user.bio}</p>
+                        <p id='profile-biography-user'>{user.bio}</p>
                     </div>
                 </div>
             </div>
