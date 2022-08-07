@@ -1,0 +1,36 @@
+.main-header-container{
+    width: 264px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.main-header-signup-text{
+    margin: auto;
+    font-size: 18px;
+    text-align: center;
+    color: #8E8E8E;
+    font-weight: 400;
+}
+
+.bottom-text-warning-container{
+    width: 264px;
+    height: fit-content;
+}
+
+.bottom-text-warning-one{
+    text-align: center;
+    font-size: 11px;
+    color: #8E8E8E;
+    padding-bottom: 0px;
+    font-weight: 300;
+}
+
+.main-header-demo-section{
+    width: 264px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { login } from '../../store/session';
+import './signup.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,89 +45,128 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    setEmail("demo@demo.com");
+    setPassword("demoPassword123");
+    dispatch(login(email, password));
+  }
+
   if (user) {
     return <Redirect to='/home' />;
   }
 
   return (
-    <div className='main-signup-content-container'>
-      <h2>Instaflick</h2>
-      <div className='main-header-container'>
-        <p>Sign up to see photos and videos from your friends</p>
+    <div className='overlay'>
+      <div className='right-picture-container'>
+        <img src='/static/InstaFlick-Home-Pic.JPG'></img>
       </div>
-      <div>
-        <form onSubmit={onSignUp}>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
+      <div className='content-container'>
+        <div className='top-form-container'>
+          <div id='logo-container-login'>
+            <img id='logo-login-image' src='/static/Instaflick-logo.png' alt='logo'/>
           </div>
-          <div>
-              <label htmlFor='name'>Name</label>
-              <input
-                name='name'
-                type='text'
-                minlength="3"
-                maxlength="20"
-                placeholder='Name'
-                value={name}
-                required
-                onChange={updateName}/>
+          <div className='main-header-container'>
+            <h2 className='main-header-signup-text'>Sign up to see photos and videos from your friends</h2>
+          </div>
+            <div className='main-header-demo-section'>
+              <button id='login-form-submit-btn' onClick={demoLogin}>Log in as Demo User</button>
+            </div>
+            <div className='login-form-break-container'>
+              <div className='login-form-line'></div>
+              <div id='login-form-break-text'> OR </div>
+              <div className='login-form-line'></div>
+            </div>
+            <div>
+              <form onSubmit={onSignUp}>
+                <div>
+                  {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                  ))}
+                </div>
+                <div className='login-form-input-container'>
+                  <div>
+                    <input
+                      className='login-input-container'
+                      type='email'
+                      name='email'
+                      placeholder='Email'
+                      onChange={updateEmail}
+                      value={email}
+                      required
+                    ></input>
+                  </div>
+                  <div>
+                    <input
+                      className='login-input-container'
+                      name='name'
+                      type='text'
+                      minlength="3"
+                      maxlength="20"
+                      placeholder='Full Name'
+                      value={name}
+                      required
+                      onChange={updateName}/>
+                  </div>
+                  <div>
+                    <input
+                      className='login-input-container'
+                      type='text'
+                      name='username'
+                      placeholder='Username'
+                      minlength='3'
+                      maxlength='12'
+                      onChange={updateUsername}
+                      value={username}
+                      required
+                    ></input>
+                  </div>
+                  <div>
+                    <input
+                      className='login-input-container'
+                      type='password'
+                      name='password'
+                      placeholder='Password'
+                      minlength='4'
+                      onChange={updatePassword}
+                      value={password}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      className='login-input-container'
+                      type='password'
+                      name='repeat_password'
+                      placeholder='Confirm Password'
+                      minlength='4'
+                      onChange={updateRepeatPassword}
+                      value={repeatPassword}
+                      required={true}
+                    />
+                  </div>
+                  <div className='bottom-text-warning-container'>
+                    <p className='bottom-text-warning-one'>Please note that is not intended for commerical purposes or is anyway associated with Instagram© </p>
+                    <p className='bottom-text-warning-one'>This website is for educational purposes only and any images or content belong to the original owner</p>
+                  </div>
+                  <button id='login-form-submit-btn' type='submit'>Sign Up</button>
               </div>
-          <div>
-            <label>User Name</label>
-            <input
-              type='text'
-              name='username'
-              placeholder='username'
-              minlength='3'
-              maxlength='12'
-              onChange={updateUsername}
-              value={username}
-              required
-            ></input>
+              </form>
+            </div>
+          </div>
+          <div className='bottom-form-container'>
+            <div id='bottom-form-login-content'>
+                <span id='button-form-right-text'>Have an Account?</span>
+                <a href='/login' id='button-form-signup-text'>Log In</a>
+            </div>
           </div>
           <div>
-            <label>Email</label>
-            <input
-              type='email'
-              name='email'
-              placeholder='email'
-              onChange={updateEmail}
-              value={email}
-              required
-            ></input>
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type='password'
-              name='password'
-              placeholder='password'
-              minlength='4'
-              onChange={updatePassword}
-              value={password}
-              required
-            ></input>
-          </div>
-          <div>
-            <label>Repeat Password</label>
-            <input
-              type='password'
-              name='repeat_password'
-              placeholder='password'
-              minlength='4'
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-          </div>
-          <button type='submit'>Sign Up</button>
-        </form>
-      </div>
-      <div>
-        <span>Have an account?</span>
-        <a href='/login'>Log in</a>
+          <p>Get the app.</p>
+        </div>
+        <div className='login-images-container'>
+          <img className='app-store-images-apple' src='/static/apple-store.png'></img>
+          <img className='app-store-images' src='/static/play-store.png'></img>
+        </div>
       </div>
     </div>
   );
