@@ -48,10 +48,11 @@
     position: absolute;
     top: 72px;
     width: 200px;
-    padding: 1rem;
+    height: fit-content;
     border: 1px solid lightgray;
     transform: translateX(-70%);
     background-color: white;
+    border-radius: 5px;
 }
 
 .dropdown-list-content{
@@ -68,5 +69,50 @@
 }
 
 #nav-bar-user-picture:hover{
+    cursor: pointer;
+}
+
+.dropdown-section{
+    text-decoration: none;
+    width: 180px;
+    height: 20px;
+    margin-bottom: 13px;
+    margin: 13px;
+}
+
+.dropdown-section:hover{
+    font-size: 18px;
+}
+
+.dropdown-section-logout{
+    width: 200px;
+    height: fit-content;
+    border-top: 1px solid black;
+}
+
+.dropdown-section-logout:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.drop-anchor-tag-section{
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.log-out-button-main{
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    margin-left: 13px;
+    margin-top: 7px;
+    padding-bottom: 10px;
+    font-weight: 400;
+}
+
+
+.log-out-button-main:hover{
     cursor: pointer;
 }

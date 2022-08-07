@@ -1,20 +1,19 @@
 import React from 'react';
 import LogoutButton from '../auth/LogoutButton';
+import './UserNavBar.css'
 
 function NavDropDown({user}) {
         return (
             <div className='dropdown-container'>
-                <div>
-                <i class="fa-regular fa-circle-user"></i>
-                <a href={`/${user.username}`}>Profile</a>
+                <div className='dropdown-section'>
+                    <i class="fa-regular fa-circle-user"></i>
+                    <a className='drop-anchor-tag-section' href={`/${user.username}`}>Profile</a>
                 </div>
-                <div>
-                <i class="fa-solid fa-gear"></i>
-                <a href='/settings'>Settings</a>
+                <div className='dropdown-section'>
+                    <i class="fa-solid fa-gear"></i>
+                    <a className='drop-anchor-tag-section' href='/settings'>Settings</a>
                 </div>
-                <div className='dropdown-logout-btn'>
-                    <LogoutButton />
-                </div>
+                <LogoutButton />
             </div>
         );
 }
