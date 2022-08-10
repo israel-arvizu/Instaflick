@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
+import SearchBar from '../searchbar';
 import NavDropDown from './NavDropDown';
 import './UserNavBar.css'
 
@@ -25,10 +26,7 @@ function UserNavBar({user}) {
                     <img id='nav-logo-image' src='/static/Instaflick-logo.png' alt='logo'/>
                 </div>
                 <div id='nav-bar-search-container'>
-                    <input
-                    type='text'
-                    placeholder='Search'
-                    ></input>
+                    <SearchBar />
                 </div>
                 <nav id='nav-bar-buttons-container'>
                     <NavLink to='/home' style={{color: 'black'}}>

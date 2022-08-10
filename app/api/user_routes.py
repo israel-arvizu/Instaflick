@@ -65,3 +65,14 @@ def updateUser():
     updatedUser = currUser.to_dict()
 
     return updatedUser
+
+
+@user_routes.route('/getAllUsers')
+@login_required
+def getAllUsers():
+
+    users = User.query.all();
+
+    userList = [user.to_dict() for user in users];
+
+    return jsonify(userList)

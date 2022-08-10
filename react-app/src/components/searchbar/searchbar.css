@@ -1,0 +1,23 @@
+.searchbox-input{
+    background-color: #EFEFEF;
+    width: 268px;
+    height: 36px;
+    border-radius: 5px;
+}
+
+.search-bar{
+    background-color: transparent;
+    width: fit-content;
+    height: 30px;
+    width: 230px;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 5px;
+}
+
+.searchbox-results-container{
+    background-color: red;
+}
