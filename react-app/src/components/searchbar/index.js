@@ -18,9 +18,9 @@ export default function SearchBar() {
         setInput(textInput)
         if(textInput){
             const result = userList.filter(user => user.username.startsWith(textInput))
+            // if(result.length <= 0)
             setResults(result)
             setListDropDown(true)
-            console.log(result)
         } else {
             setListDropDown(false)
         }
