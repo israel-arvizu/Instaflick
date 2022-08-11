@@ -99,6 +99,10 @@
     font-weight: bold;
 }
 
+#profile-user-edit-btn:hover{
+    cursor: pointer;
+}
+
 #profile-username-header{
     font-weight: 300;
     font-size: 25px;

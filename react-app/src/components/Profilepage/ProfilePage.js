@@ -75,7 +75,8 @@ function ProfilePage() {
                 <div className='profilepage-user-info'>
                     <div className='profile-user-edit'>
                         <h2 id='profile-username-header'>{user.username}</h2>
-                        <button id='profile-user-edit-btn' onClick={() => submitEditProfile()}>Edit Profile</button>
+                        {signedInUser.id === user.id &&
+                        <button id='profile-user-edit-btn' onClick={() => submitEditProfile()}>Edit Profile</button>}
                     </div>
                     <div className='profile-info-section'>
                         <div className='profile-short-info-container'>
