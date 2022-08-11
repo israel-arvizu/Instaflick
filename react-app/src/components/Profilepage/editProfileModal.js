@@ -21,9 +21,8 @@ export default function EditProfile({user, onClose}) {
         document.getElementById('file').click()
     }
 
-    const changeProfile = (e) => {
-        e.preventDefault()
-        if(bio === userBio && photo.length <= 0){
+    const changeProfile = () => {
+        if(bio === userBio && photo !== undefined && photo.length <= 0){
             setChange(false)
         }else{
             if(!bio){
@@ -35,6 +34,7 @@ export default function EditProfile({user, onClose}) {
             dispatch(updateProfile(formData, photo, bio))
             onClose()
         }
+        window.location.reload()
     }
 
     const changeBio = (e) => {
@@ -60,7 +60,13 @@ export default function EditProfile({user, onClose}) {
                                 </div>
                                 <div id='form-label-bio-box'>
                                     <label id='form-bio-label-text'>Bio</label>
-                                    <textarea id='form-label-bio' type="textarea" value={bio} placeholder='Update Bio' onChange={changeBio}/>
+                                    <textarea
+                                    id='form-label-bio'
+                                    type="textarea"
+                                    value={bio}
+                                    placeholder='Update Bio'
+                                    maxLength='100'
+                                    onChange={changeBio}/>
                                 </div>
                                 <input type="button" id="loadProfilePic" value="Upload Photo" onClick={() => submitEdit()} />
                                 <input
@@ -69,7 +75,9 @@ export default function EditProfile({user, onClose}) {
                                 accept=".png, .jpg, .jpeg"
                                 onChange={addImage}
                                 id="file" name="file"/>
-                                <button type="submit" id={change ? "submitEditActive" : "submitEdit"}>Submit</button>
+                                {change ? <button type="submit" id="submitEditActive">Save Changes</button>
+                                : <label id="submitEditUnActive">*Please add an image or edit caption*</label>}
+                                {/* <button type="submit" id={change ? "submitEditActive" : "submitEdit"}>Submit</button> */}
                             </div>
                         </form>
                     </div>
