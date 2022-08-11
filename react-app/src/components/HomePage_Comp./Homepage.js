@@ -5,6 +5,7 @@ import AddComment from '../comments';
 import { getRecentPost } from '../../store/posts';
 import Modal from '../../components/postModal'
 import './homepage.css'
+import { getRecommendedUsers } from './helperFunctions';
 
 
 function Homepage()  {
@@ -13,7 +14,9 @@ function Homepage()  {
   const [errors, setErrors] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedPost, setSelectedPost] = useState(undefined)
+  const allUsers = useSelector(state => state.users.allUsers)
   const recentPost = useSelector(state => state.posts.recentPosts)
+  let recommendedUsers = undefined
 
   function selectPost(post){
     setSelectedPost(post)
@@ -36,6 +39,10 @@ function Homepage()  {
     return null
   }
 
+  if(allUsers !== undefined){
+    recommendedUsers = getRecommendedUsers(allUsers)
+  }
+
   return (
     <>
         <UserNavBar user={user}/>
@@ -49,10 +56,10 @@ function Homepage()  {
             {recentPost.map((post) => {
               return (
                 <div className='post-article-container'>
-                  <div className='post-header'>
+                  <a className='post-header' href={`/${post.OwnerUsername}`}>
                     <img src={post.UserPhotoUrl} id='homepage-post-pic' alt='Profile Picture'/>
                     <p id='homepage-post-username'>{post.OwnerUsername}</p>
-                  </div>
+                  </a>
                   <div className='post-picture-content' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>
                     <img src={post.photoUrl} className='homepage-post-image'/>
                   </div>
@@ -75,17 +82,33 @@ function Homepage()  {
             })}
           </div>
           <div id='home-right-container'>
-            <div id='home-profile-section'>
-                <img src={user.profile_picture} id='homepage-profile-pic' alt='Profile Picture'/>
-                <div id='home-profile-names'>
+            <a id='home-profile-section' href={`/${user.username}`}>
+              <img src={user.profile_picture} id='homepage-profile-pic' alt='Profile Picture'/>
+              <div id='home-profile-names'>
                   <div id='home-profile-username'>{user.name}</div>
                   <div id='home-profile-realname'>{user.username}</div>
               </div>
-            </div>
+            </a>
             <div id='home-suggestion-container'>
                 <span id='home-suggestions-text'>Suggestions For You</span>
                 <div id='home-suggestion-container'>
-                    {/* <div>User.map.</div> */}
+                    {recommendedUsers === undefined ? <div>Loading</div> :
+                      <div>
+                        {recommendedUsers.map((currUser) => {
+                            if(currUser.id !== user.id){
+                              return (
+                                <a className='outside-recommended-user' href={`/${currUser.username}`}>
+                                  <img className='recommendedUser-profile-pic' src={currUser.profile_picture} alt='User profile picture' />
+                                  <div className='recommendedUser-side-info'>
+                                    <p className='recommendedUser-username'>{currUser.username}</p>
+                                    <p className='recommendedUser-text-below'>Suggested for you</p>
+                                  </div>
+                                </a>
+                              )
+                            }
+                          })}
+                      </div>
+                    }
                 </div>
             </div>
           </div>
