@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -47,9 +47,8 @@ const SignUpForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    setEmail("demo@demo.com");
-    setPassword("demoPassword123");
-    dispatch(login(email, password));
+
+    await dispatch(login("demo@demo.com", "demoPassword123"));
   }
 
   if (user) {
@@ -127,7 +126,7 @@ const SignUpForm = () => {
                       type='password'
                       name='password'
                       placeholder='Password'
-                      minlength='4'
+                      minlength='5'
                       onChange={updatePassword}
                       value={password}
                       required
@@ -139,7 +138,7 @@ const SignUpForm = () => {
                       type='password'
                       name='repeat_password'
                       placeholder='Confirm Password'
-                      minlength='4'
+                      minlength='5'
                       onChange={updateRepeatPassword}
                       value={repeatPassword}
                       required={true}
