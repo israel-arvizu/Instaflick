@@ -90,6 +90,20 @@
     border-top: 1px solid black;
 }
 
+.dropdown-section-profile{
+    display: flex;
+    width: 200px;
+    height: fit-content;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 13px;
+}
+
+.dropdown-section-profile:hover{
+    font-size: 18px;
+}
+
 .dropdown-section-logout:hover{
     background-color: rgba(0, 0, 0, 0.05);
     cursor: pointer;
@@ -100,6 +114,20 @@
     text-decoration: none;
     color: black;
     font-size: 15px;
+}
+
+.drop-p-tag-section{
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    margin: 0px;
+    margin-left: 15px;
+}
+
+#icon-person-section{
+    margin-left: 13px;
+    color: black;
 }
 
 .log-out-button-main{

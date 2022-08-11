@@ -5,10 +5,10 @@ import './UserNavBar.css'
 function NavDropDown({user}) {
         return (
             <div className='dropdown-container'>
-                <div className='dropdown-section'>
-                    <i class="fa-regular fa-circle-user"></i>
-                    <a className='drop-anchor-tag-section' href={`/${user.username}`}>Profile</a>
-                </div>
+                <a className='dropdown-section-profile' href={`/${user.username}`}>
+                    <i class="fa-regular fa-circle-user" id='icon-person-section' ></i>
+                    <p className='drop-p-tag-section'>Profile</p>
+                </a>
                 <div className='dropdown-section'>
                     <i class="fa-solid fa-gear"></i>
                     <a className='drop-anchor-tag-section' href='/settings'>Settings</a>

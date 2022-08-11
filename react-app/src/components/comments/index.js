@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSingleComment } from "../../store/comments";
+import { getRecentPost } from '../../store/posts';
 import './comments.css'
 
 export default function AddComment({post}) {
@@ -9,13 +10,14 @@ export default function AddComment({post}) {
     const userId = useSelector(state => state.session.user.id)
     let postId = post.id
 
+
     const processComment = async (e) => {
         e.preventDefault()
         if(comment.length > 0){
             await dispatch(addSingleComment(comment, userId, postId))
             setComment('')
         }
-
+        dispatch(getRecentPost())
     }
 
     return (

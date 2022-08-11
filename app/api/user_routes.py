@@ -65,3 +65,24 @@ def updateUser():
     updatedUser = currUser.to_dict()
 
     return updatedUser
+
+
+@user_routes.route('/getAllUsers')
+@login_required
+def getAllUsers():
+
+    users = User.query.all();
+
+    userList = [user.to_dict() for user in users];
+
+    return jsonify(userList)
+
+@user_routes.route('/load/<username>')
+@login_required
+def loadSingleUser(username):
+
+    user = User.query.filter(User.username == username).first()
+    if user == None:
+        return {"errors": "User not found"}, 400
+    else:
+        return user.to_dict()

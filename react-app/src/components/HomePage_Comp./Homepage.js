@@ -8,7 +8,7 @@ import './homepage.css'
 
 function Homepage()  {
   const user = useSelector(state => state.session.user)
-  const dipatch = useDispatch()
+  const dispatch = useDispatch()
   const [errors, setErrors] = useState([])
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedPost, setSelectedPost] = useState(undefined)
@@ -21,15 +21,15 @@ function Homepage()  {
 
   function closeModal() {
     setModalOpen(false)
-    dipatch(getRecentPost())
+    dispatch(getRecentPost())
   }
 
   useEffect(() => {
-    const data = dipatch(getRecentPost())
+    const data = dispatch(getRecentPost())
     if (data) {
       setErrors(data);
     }
-  }, [dipatch])
+  }, [dispatch])
 
   if(recentPost === undefined){
     return null
@@ -81,7 +81,7 @@ function Homepage()  {
             <div id='home-suggestion-container'>
                 <span id='home-suggestions-text'>Suggestions For You</span>
                 <div id='home-suggestion-container'>
-                    <div>User.map</div>
+                    <div>User.map.</div>
                 </div>
             </div>
           </div>
