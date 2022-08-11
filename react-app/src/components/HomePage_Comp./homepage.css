@@ -16,6 +16,8 @@
     flex-direction: row;
     align-items: center;
     margin-top: 24px;
+    color: black;
+    text-decoration: none;
 }
 
 #home-profile-names{
@@ -49,6 +51,8 @@
     flex-direction: row;
     align-items: center;
     background-color: #FFFFFF;
+    text-decoration: none;
+    color: black;
 }
 
 #homepage-post-pic{
@@ -129,4 +133,41 @@
     font-size: 14px;
     margin-left: 5px;
     font-weight: 300;
+}
+
+.outside-recommended-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.recommendedUser-profile-pic{
+    width: 3.5vmin;
+    height: 3.5vmin;
+    border-radius:50%;
+}
+
+.recommendedUser-side-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendedUser-username{
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1px;
+    margin-top: 2px;
+    color: black;
+}
+
+.recommendedUser-text-below{
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0px;
+    margin-left: 10px;
+    color: #A2A2A2;
 }

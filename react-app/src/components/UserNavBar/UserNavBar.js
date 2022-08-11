@@ -22,9 +22,9 @@ function UserNavBar({user}) {
     return (
         <div className='nav-bar-container'>
             <div className='nav-bar-content'>
-                <div id='logo-nav-bar-container'>
+                <a id='logo-nav-bar-container' href='/home'>
                     <img id='nav-logo-image' src='/static/Instaflick-logo.png' alt='logo'/>
-                </div>
+                </a>
                 <div id='nav-bar-search-container'>
                     <SearchBar />
                 </div>
