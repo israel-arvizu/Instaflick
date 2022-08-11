@@ -85,7 +85,7 @@ function Homepage()  {
             <div id='home-suggestion-container'>
                 <span id='home-suggestions-text'>Suggestions For You</span>
                 <div id='home-suggestion-container'>
-                    <div>User.map.</div>
+                    {/* <div>User.map.</div> */}
                 </div>
             </div>
           </div>
