@@ -110,7 +110,7 @@ export default function Modal({onClose, post}){
                                     </div>
                                 </>
                                 :
-                                <div>
+                                <div className='comment-content-user-caption'>
                                     <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
                                     <span>{postCapt}</span>
                                 </div>
