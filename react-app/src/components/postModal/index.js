@@ -155,10 +155,6 @@ export default function Modal({onClose, post}){
                         })}
                     </div>
                     <div className='modal-add-comments-container'>
-                        <div>
-                            <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
-                            <i class="fa-regular fa-comment fa-xl"></i>
-                        </div>
                         <AddComment post={post}/>
                     </div>
                 </div>

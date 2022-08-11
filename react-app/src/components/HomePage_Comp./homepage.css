@@ -76,8 +76,8 @@
 
 .post-bottom-comments-head{
     color: #989898;
-    margin-bottom: 15px;
-
+    margin-bottom: 13px;
+    font-size: 15px;
 }
 
 .post-bottom-dateCreated{
@@ -111,4 +111,22 @@
     font-weight: 800;
     font-size: 15px;
     color: #8f8e8e;
+}
+
+.post-like-section{
+    margin-top: 0px;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.post-owner-username-section{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.post-owner-bio-section{
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: 300;
 }

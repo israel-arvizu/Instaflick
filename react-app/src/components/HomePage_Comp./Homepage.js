@@ -6,6 +6,7 @@ import { getRecentPost } from '../../store/posts';
 import Modal from '../../components/postModal'
 import './homepage.css'
 
+
 function Homepage()  {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch()
@@ -56,12 +57,15 @@ function Homepage()  {
                     <img src={post.photoUrl} className='homepage-post-image'/>
                   </div>
                   <div className='post-bottom-content'>
-                    <div className='favorite-buttons-container'>
+                    {/* <div className='favorite-buttons-container'>
                       <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
                       <i class="fa-regular fa-comment fa-xl"></i>
+                    </div> */}
+                    <p className='post-like-section'>{post.likes} likes</p>
+                    <div className='post-owner-bio-container'>
+                      <span className='post-owner-username-section'>{post.OwnerUsername}</span>
+                      <span className='post-owner-bio-section'>{post.postBio}</span>
                     </div>
-                    <p>{post.likes} likes</p>
-                    <p>{post.postBio}</p>
                     <p className='post-bottom-comments-head' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>View all {post.comments} comments</p>
                     <p className='post-bottom-dateCreated'>{post.dateCreated}</p>
                   </div>
