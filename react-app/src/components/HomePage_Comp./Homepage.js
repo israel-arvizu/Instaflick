@@ -4,6 +4,7 @@ import UserNavBar from '../UserNavBar/UserNavBar';
 import AddComment from '../comments';
 import { getRecentPost } from '../../store/posts';
 import Modal from '../../components/postModal'
+import TimeAgoDate from '../timeAgo/timeAgo';
 import './homepage.css'
 
 
@@ -67,7 +68,9 @@ function Homepage()  {
                       <span className='post-owner-bio-section'>{post.postBio}</span>
                     </div>
                     <p className='post-bottom-comments-head' onClick={() => selectPost(post)} style={{cursor: 'pointer'}}>View all {post.comments} comments</p>
-                    <p className='post-bottom-dateCreated'>{post.dateCreated}</p>
+                    <p className='post-bottom-dateCreated'>
+                      <TimeAgoDate date={post.dateCreated} />
+                    </p>
                   </div>
                   <AddComment post={post}/>
                 </div>
