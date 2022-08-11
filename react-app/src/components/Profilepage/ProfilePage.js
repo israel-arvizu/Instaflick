@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import UserNavBar from '../UserNavBar/UserNavBar';
 import { getUsersPost } from '../../store/posts';
+import { getUser } from '../../store/users';
 import Modal from '../postModal'
 import EditProfile from './editProfileModal';
 import './profilepage.css'
+import { useParams } from 'react-router-dom';
 
 function ProfilePage() {
-    const user = useSelector(state => state.session.user)
+    const signedInUser = useSelector(state => state.session.user)
     const usersPost = useSelector(state => state.posts.userPosts)
+    const user = useSelector(state => state.users.selected)
+    const username = useParams().user
     const [errors, setErrors] = useState([])
+    const [userFound, setUserFound] = useState(false)
     const [modalOpen, setModalOpen] = useState(false)
     const [editModal, setEditModal] = useState(false)
+    const [loaded, setLoaded] = useState(false)
     const [selectedPost, setSelectedPost] = useState(undefined)
     const dispatch = useDispatch()
 
@@ -32,22 +38,38 @@ function ProfilePage() {
         setEditModal(false)
     }
 
-
     //close
     useEffect(() => {
-        const data = dispatch(getUsersPost(user.id))
-        if (data) {
-            setErrors(data);
-          }
+        (async() => {
+            const userData = await dispatch(getUser(username))
+            if (userData) {
+                setErrors(userData)
+                setUserFound(true)
+            }
+            })();
     }, [dispatch])
 
-    //CHANGE THIS TO JUST LOAD IN WHAT IS LOADED IN
-    if(usersPost === undefined){
-        return null
+    if(user !== undefined && !loaded){
+        dispatch(getUsersPost(user.id))
+        setLoaded(true)
     }
+
+
+    if(user === undefined || usersPost === undefined)
+        return null
+
+    if(userFound) {
+        return (
+            <>
+                <UserNavBar user={user}/>
+                <p>User not found!</p>
+            </>
+        )
+    }
+
     return (
         <div>
-            <UserNavBar user={user}/>
+            <UserNavBar user={signedInUser}/>
             <div className='top-profile-header'>
                 <img src={user.profile_picture} id='profilePage-profile-pic'></img>
                 <div className='profilepage-user-info'>

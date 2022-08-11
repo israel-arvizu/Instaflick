@@ -76,3 +76,13 @@ def getAllUsers():
     userList = [user.to_dict() for user in users];
 
     return jsonify(userList)
+
+@user_routes.route('/load/<username>')
+@login_required
+def loadSingleUser(username):
+
+    user = User.query.filter(User.username == username).first()
+    if user == None:
+        return {"errors": "User not found"}, 400
+    else:
+        return user.to_dict()

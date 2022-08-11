@@ -24,6 +24,54 @@
     position: absolute;
     top: 70px;
     height: 350px;
-    width: 300px;
+    width: 270px;
     border-radius: 5px;
+    padding: 5px;
+}
+
+.result-dropdown-picture{
+    width: 6vmin;
+    height: 6vmin;
+    border-radius:50%;
+}
+
+.result-dropdown-name-cont{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-left: 7px;
+}
+
+.result-dropdown-user-container{
+    width: 260px;
+    height: 6vmin;
+    padding: 8px;
+}
+
+.result-dropdown-user-container:hover{
+    background-color: #f1efef;
+}
+
+.result-dropdown-username{
+    margin: 0px;
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+}
+
+.result-dropdown-name{
+    margin: 0px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #8E8E8E;
+}
+
+.result-user-link{
+    display: flex;
+    flex-direction: row;
+    width: 260px;
+    height: 6vmin;
+    align-items: center;
+    text-decoration: none;
 }
