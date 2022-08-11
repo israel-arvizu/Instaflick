@@ -3,3 +3,29 @@ body{
     background-color: #FAFAFA;
     font-family: 'Roboto', 'sans-serif';
 }
+
+.errors-container{
+    background-color: rgb(252, 175, 175);
+    border: 1px solid rgb(245, 86, 86);
+    max-width: 220px;
+    font-size: 14px;
+    color: rgb(243, 61, 61);
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.error-outside-placeholder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hidden-errors{
+    display: none;
+    width: 0px;
+    height: 0px;
+}

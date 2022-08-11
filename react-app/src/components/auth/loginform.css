@@ -85,7 +85,7 @@
     align-items: center;
     width: 258px;
     height: 15px;
-    margin: 10px 43px 18px;
+    margin: 10px 43px 5px;
 }
 
 .login-form-line{
@@ -112,6 +112,7 @@
     align-items: center;
     justify-content:space-between;
     margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 #login-form-demo-btn{

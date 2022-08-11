@@ -26,28 +26,33 @@ const SignUpForm = () => {
   };
 
   const updateName = (e) => {
+    setErrors([])
     setName(e.target.value);
   }
 
   const updateUsername = (e) => {
+    setErrors([])
     setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
+    setErrors([])
     setEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
+    setErrors([])
     setPassword(e.target.value);
   };
 
   const updateRepeatPassword = (e) => {
+    setErrors([])
     setRepeatPassword(e.target.value);
   };
 
   const demoLogin = async (e) => {
     e.preventDefault();
-
+    setErrors([])
     await dispatch(login("demo@demo.com", "demoPassword123"));
   }
 
@@ -78,10 +83,12 @@ const SignUpForm = () => {
             </div>
             <div>
               <form onSubmit={onSignUp}>
-                <div>
+                <div className='error-outside-placeholder'>
+                  <div className={errors.length > 0 ?  'errors-container' : 'hidden-errors'}>
                   {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                   ))}
+                  </div>
                 </div>
                 <div className='login-form-input-container'>
                   <div>

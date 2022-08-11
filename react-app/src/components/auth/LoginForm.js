@@ -22,17 +22,20 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
+    setErrors([])
     setButtonText('Log In as Demo')
     setEmail('demo@demo.com')
     setPassword('demoPassword123')
   }
 
   const updateEmail = (e) => {
+    setErrors([])
     setButtonText('Log In')
     setEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
+    setErrors([])
     setButtonText('Log In')
     setPassword(e.target.value);
   };
@@ -52,10 +55,12 @@ const LoginForm = () => {
             <img id='logo-login-image' src='/static/Instaflick-logo.png' alt='logo'/>
           </div>
           <form onSubmit={onLogin}>
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
+            <div className='error-outside-placeholder'>
+              <div className={errors.length > 0 ?  'errors-container' : 'hidden-errors'}>
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+              </div>
             </div>
             <div className='login-form-input-container'>
               <div>
@@ -74,7 +79,7 @@ const LoginForm = () => {
                   className='login-input-container'
                   name='password'
                   type='password'
-                  minLength={4}
+                  minLength='4'
                   placeholder='Password'
                   value={password}
                   onChange={updatePassword}
