@@ -11,6 +11,7 @@ function PostCreation() {
     const [image, setImage] = useState([])
     const [btnText, setBtnText] = useState("Select from computer")
     const [bio, setBio] = useState('')
+    const [activePost, setActivePost] = useState(false)
     const user = useSelector(state => state.session.user)
 
     const processPost = async (e) => {
@@ -30,6 +31,7 @@ function PostCreation() {
         const file = e.target.files[0];
         setImage(file)
         setBtnText("Change Image")
+        setActivePost(true)
     }
         return (
             <>
@@ -73,7 +75,8 @@ function PostCreation() {
                                     />
                                 </div>
                                 <div className='bottom-post-submit-section'>
-                                    <button type='submit'>Done</button>
+                                    {activePost ? <button className='submit-post-button' type='submit'>Done</button> :
+                                    <label className='submit-post-unactive-label'>Please upload an image</label>}
                                 </div>
                             </form>
                         </div>
