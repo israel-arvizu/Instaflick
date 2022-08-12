@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import AddComment from '../comments'
+import ModalAddComment from '../comments/AddCommentModal'
 import OptionsModal from './optionsModal'
 import { loadPostComments } from '../../store/comments'
 import { deleteComment } from '../../store/comments'
@@ -156,7 +156,7 @@ export default function Modal({onClose, post}){
                         })}
                     </div>
                     <div className='modal-add-comments-container'>
-                        <AddComment post={post}/>
+                        <ModalAddComment post={post} />
                     </div>
                 </div>
             </div>
