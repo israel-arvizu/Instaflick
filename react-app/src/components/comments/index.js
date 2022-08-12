@@ -28,6 +28,7 @@ export default function AddComment({post}) {
                 type='text'
                 className='post-bottom-comment-box'
                 value={comment}
+                maxLength='100'
                 onChange={e => setComment(e.target.value)}
                 placeholder='Add a comment...'/>
                 <button type='submit' className={comment.length <= 0 ? 'post-comments-unactive':'post-comment-btn'}>Post</button>
