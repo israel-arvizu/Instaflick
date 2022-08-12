@@ -99,3 +99,31 @@
     justify-content: center;
     align-items: center;
 }
+
+.submit-post-button{
+    width: 150px;
+    height: 30px;
+    background-color: #0095F6;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', 'sans-serif';
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.submit-post-unactive-label{
+    width: 180px;
+    height: 20px;
+    background-color: #a4dcec;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+.submit-post-button:hover{
+    cursor: pointer;
+}

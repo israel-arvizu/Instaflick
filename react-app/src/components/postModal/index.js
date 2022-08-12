@@ -31,6 +31,7 @@ export default function Modal({onClose, post}){
 
    const removeComment = (commentId) => {
         dispatch(deleteComment(commentId, postId))
+        setEditCommentBox(null)
     }
 
     const edtComment = (commentId, commentText) => {
@@ -101,7 +102,7 @@ export default function Modal({onClose, post}){
                                                 placeholder={"Must be at least 1 character"}
                                                 onChange={(e) => setCaption(e.target.value)}
                                                 required
-                                                maxLength="346"/>
+                                                maxLength="100"/>
                                         </form>
                                     </div>
                                     <div className='comment-edit-buttons'>
@@ -110,7 +111,7 @@ export default function Modal({onClose, post}){
                                     </div>
                                 </>
                                 :
-                                <div>
+                                <div className='comment-content-user-caption'>
                                     <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
                                     <span>{postCapt}</span>
                                 </div>
@@ -125,7 +126,7 @@ export default function Modal({onClose, post}){
                                     </div>
                                     <div className='comment-content-text'>
                                         {editCommentBox === comment.id ?
-                                            <div>
+                                            <div className='comment-container-input-section'>
                                                 <span style={{marginRight: '5px', fontWeight: '500'}}>{comment.username}</span>
                                                 <form>
                                                     <textarea
@@ -133,17 +134,17 @@ export default function Modal({onClose, post}){
                                                         value={newComment}
                                                         onChange={(e) => setNewComment(e.target.value)}
                                                         required
-                                                        maxLength="346"/>
+                                                        maxLength="100"/>
                                                 </form>
                                             </div>
-                                        :<div>
+                                        : <div className='post-comment-content-box'>
                                             <span style={{marginRight: '5px', fontWeight: '500'}}>{comment.username}</span>
                                             <span>{comment.text}</span>
                                         </div>}
                                         {comment.userId === userId ?
                                                 <div className='comment-edit-buttons'>
                                                     <span className='comment-edit-btn' style={{cursor: 'pointer'}} onClick={() => edtComment(comment.id, comment.text)}>Edit</span>
-                                                    {editCommentBox !== null &&
+                                                    {editCommentBox !== null && editCommentBox === comment.id &&
                                                     <span className='comment-edit-btn' style={{cursor: 'pointer'}} onClick={() => cancelEdit()}>Cancel</span>
                                                     }
                                                     <span className='comment-dlt-btn' style={{cursor: 'pointer'}} onClick={() => removeComment(comment.id)}>Delete</span>

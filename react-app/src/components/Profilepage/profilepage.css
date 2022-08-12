@@ -3,6 +3,7 @@
     margin-left: 80px;
     margin-right: 80px;
     max-width: 150px;
+    object-fit: cover;
 }
 
 .top-profile-header{
