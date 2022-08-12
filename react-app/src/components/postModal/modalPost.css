@@ -67,6 +67,7 @@ body{
 .modal-comments-container{
     height: 83.3%;
     width: 100%;
+    overflow-x: auto;
 }
 
 .modal-add-comments-container{
@@ -144,6 +145,7 @@ body{
     display: flex;
     flex-direction: row;
     margin: 15px;
+
 }
 
 .modal-comment-image-container{

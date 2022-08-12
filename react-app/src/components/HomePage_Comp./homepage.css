@@ -34,7 +34,7 @@
 }
 
 .homepage-post-image{
-    width: 472px;
+    width: 100%;
 }
 
 .post-article-container{
@@ -69,15 +69,20 @@
     border-left: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     border-top: none;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 11px;
+    padding-left: 11px;
     padding-top: 7px;
     background-color: #FFFFFF;
+    width: 450px;
 }
 
 .post-picture-content{
     margin-bottom: 0px;
     padding-bottom: 0px;
+    width: 472px;
+    background-color: white;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6;
 }
 
 .post-bottom-comments-head{
