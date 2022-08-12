@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import AddComment from '../comments'
+import ModalAddComment from '../comments/AddCommentModal'
 import OptionsModal from './optionsModal'
 import { loadPostComments } from '../../store/comments'
 import { deleteComment } from '../../store/comments'
@@ -24,6 +24,10 @@ export default function Modal({onClose, post}){
     useEffect(() => {
         dispatch(loadPostComments(postId))
     }, [dispatch])
+
+    useEffect(() => {
+        setCaption(postCapt)
+    }, [postCapt])
 
     function closeModal(){
         setOptionModal(false)
@@ -87,19 +91,21 @@ export default function Modal({onClose, post}){
                     </div>
                     <div className='modal-comments-container'>
                         <div className='comment-container'>
-                            <div className='modal-comment-image-container'>
+                            {/* <div className='modal-comment-image-container'>
                                 <img src={post.UserPhotoUrl} className='comment-image-content'/>
-                            </div>
-                            <div className='comment-content-text'>
+                            </div> */}
                                 {editPost ?
                                 <>
-                                    <div>
-                                        <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
+                                    <div className='modal-comment-image-container'>
+                                        <img src={post.UserPhotoUrl} className='comment-image-content'/>
+                                    </div>
+                                    <div className='comment-content-text'>
+                                        <span style={{marginLeft: '3px', fontWeight: '500'}}>{post.OwnerUsername}</span>
                                         <form>
                                             <textarea
                                                 className='comment-edit-box'
-                                                value={caption}
-                                                placeholder={"Must be at least 1 character"}
+                                                // value={caption}
+                                                placeholder={postCapt}
                                                 onChange={(e) => setCaption(e.target.value)}
                                                 required
                                                 maxLength="100"/>
@@ -111,12 +117,22 @@ export default function Modal({onClose, post}){
                                     </div>
                                 </>
                                 :
-                                <div className='comment-content-user-caption'>
-                                    <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
-                                    <span>{postCapt}</span>
-                                </div>
+                                postCapt.length > 0 || editPost ?
+                                <div className='modal-caption-text-valid-conatiner'>
+                                    <div className='modal-comment-image-container'>
+                                        <img src={post.UserPhotoUrl} className='comment-image-content'/>
+                                    </div>
+                                    <div className='comment-content-user-caption'>
+                                        <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
+                                        <span>{postCapt}</span>
+                                    </div>
+                                </div>  : null
+
+                                // <div className='comment-content-user-caption'>
+                                //     <span style={{marginRight: '5px', fontWeight: '500'}}>{post.OwnerUsername}</span>
+                                //     <span>{postCapt}</span>
+                                // </div>
                                 }
-                            </div>
                         </div>
                         {comments.map((comment) => {
                             return (
@@ -156,7 +172,7 @@ export default function Modal({onClose, post}){
                         })}
                     </div>
                     <div className='modal-add-comments-container'>
-                        <AddComment post={post}/>
+                        <ModalAddComment post={post} />
                     </div>
                 </div>
             </div>

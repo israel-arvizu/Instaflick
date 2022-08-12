@@ -85,7 +85,7 @@ def deletePost(id):
     db.session.delete(post)
     db.session.commit()
 
-    posts = Post.query.filter(Post.userId == user).all();
+    posts = Post.query.filter(Post.userId == user).order_by(Post.dateCreated.desc()).all();
     posts = list(posts);
     recentPosts = [post.to_dict() for post in posts]
     return jsonify(recentPosts)

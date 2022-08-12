@@ -50,6 +50,7 @@ body{
     max-width: 500px;
     background-color: white;
     border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .top-modal-profile-header{
@@ -65,13 +66,15 @@ body{
 }
 
 .modal-comments-container{
-    height: 83.3%;
+    height: 88.5%;
     width: 100%;
     overflow-x: auto;
 }
 
 .modal-add-comments-container{
-    height: 10%;
+    height: 5%;
+    display: flex;
+    align-items: flex-end;
 }
 
 .modal-outside-container{
@@ -184,6 +187,7 @@ body{
 .comment-content-user-caption{
     width: 100%;
     overflow-wrap: break-word;
+    margin-left: 11px;
 }
 
 .post-comment-content-box{
@@ -197,8 +201,15 @@ body{
     outline: none;
     width: 100%;
     resize: none;
+    margin-left: 3px;
 }
 
 .comment-container-input-section{
     width: 100%;
+}
+
+.modal-caption-text-valid-conatiner{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
 }
