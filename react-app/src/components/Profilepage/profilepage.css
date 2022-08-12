@@ -16,6 +16,7 @@
 
 .profie-single-post{
     margin: 15px;
+    width: fit-content;
 }
 
 .post-container-block{
@@ -24,8 +25,10 @@
     padding-top: 10px;
     width: 1000px;
     height: fit-content;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    /* grid-template-columns: auto auto auto; */
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .bottom-body-profile-post{
     width: 100%;

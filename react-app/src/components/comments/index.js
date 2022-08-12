@@ -31,7 +31,8 @@ export default function AddComment({post}) {
                 maxLength='100'
                 onChange={e => setComment(e.target.value)}
                 placeholder='Add a comment...'/>
-                <button type='submit' className={comment.length <= 0 ? 'post-comments-unactive':'post-comment-btn'}>Post</button>
+                {comment.length <= 0 ? <label className='post-comments-unactive'>Post</label>
+                : <button type='submit' className='post-comment-btn'>Post</button>}
             </form>
         </div>
     )

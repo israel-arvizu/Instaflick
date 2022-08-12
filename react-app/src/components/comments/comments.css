@@ -14,6 +14,7 @@
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
+    height: 35px;
 }
 
 .post-bottom-comment-box{
@@ -40,6 +41,8 @@
     font-size: 15px;
     font-weight: 600;
     color: #B8E2FD;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .post-comment-btn:hover{
@@ -50,7 +53,7 @@
     border-bottom-right-radius: 10px;
     border-top: 1px solid #D6D6D6;
     width: 100%;
-    height: 42px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -81,4 +84,6 @@
     font-size: 14px;
     font-weight: 600;
     color: #B8E2FD;
+    padding-left: 5px;
+    padding-right: 5px;
 }

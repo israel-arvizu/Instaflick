@@ -32,7 +32,8 @@ export default function ModalAddComment({post}) {
                     maxLength='100'
                     onChange={e => setComment(e.target.value)}
                     placeholder='Add a comment...'/>
-                    <button type='submit' className={comment.length <= 0 ? 'modal-comments-unactive':'modal-comment-btn'}>Post</button>
+                    {comment.length <= 0 ? <label className='modal-comments-unactive'>Post</label>
+                    : <button type='submit' className='modal-comment-btn'>Post</button>}
                 </div>
             </form>
         </div>
