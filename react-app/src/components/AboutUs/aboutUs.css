@@ -1,0 +1,12 @@
+#aboutUs-label-container{
+    width: 100%;
+    height: 80px;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-us-main-h1{
+    margin: 0px;
+}

@@ -9,6 +9,7 @@ import User from './components/User';
 import Homepage from './components/HomePage_Comp./Homepage';
 import { authenticate } from './store/session';
 import ProfilePage from './components/Profilepage/ProfilePage';
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
+        </Route>
+        <Route path='/about-us' exact={true}>
+          <AboutUs />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />

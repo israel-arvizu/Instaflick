@@ -11,7 +11,7 @@ function NavDropDown({user}) {
                 </a>
                 <div className='dropdown-section'>
                     <i class="fa-solid fa-gear"></i>
-                    <a className='drop-anchor-tag-section' href='/settings'>Settings</a>
+                    <a className='drop-anchor-tag-section' href='/about-us'>About Us</a>
                 </div>
                 <LogoutButton />
             </div>
