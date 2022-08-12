@@ -187,6 +187,7 @@ body{
 .comment-content-user-caption{
     width: 100%;
     overflow-wrap: break-word;
+    margin-left: 11px;
 }
 
 .post-comment-content-box{
@@ -200,8 +201,15 @@ body{
     outline: none;
     width: 100%;
     resize: none;
+    margin-left: 3px;
 }
 
 .comment-container-input-section{
     width: 100%;
+}
+
+.modal-caption-text-valid-conatiner{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
 }
