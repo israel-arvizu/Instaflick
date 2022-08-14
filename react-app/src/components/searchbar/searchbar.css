@@ -75,3 +75,13 @@
     align-items: center;
     text-decoration: none;
 }
+
+.searchbox-noResults-container{
+  margin-top: 150px;
+  margin-left: 80px;
+}
+
+#no-results-content{
+    color: #8E8E8E;
+    font-size: 14px;
+}

@@ -30,7 +30,7 @@ export const getUser = (username) => async (dispatch) => {
         const data = await response.json();
         dispatch(getSingleUser(data))
         return null;
-    } else if(response.status == 400){
+    } else if(response.status === 400){
         const data = await response.json();
         if (data.errors) {
             return data.errors;
@@ -42,7 +42,6 @@ export const getUser = (username) => async (dispatch) => {
 const initialState = { user: null };
 
 export default function userReducer(state = initialState, action){
-    let newState = {}
     switch (action.type) {
         case GET_USERS:
             return {...state, allUsers: action.payload }

@@ -18,14 +18,14 @@ export default function AboutUs (){
                             <p id='homepage-post-username'>israelarvizu</p>
                         </a>
                         <div className='post-picture-content'>
-                            <img src='/static/PortraitPicture.png' className='homepage-post-image' style={{}}/>
+                            <img src='/static/PortraitPicture.png' className='homepage-post-image' style={{backgroundColor: "#cfdddd"}}/>
                         </div>
                         <div className='post-bottom-content' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px'}}>
                             {/* <div className='favorite-buttons-container'>
                             <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
                             <i class="fa-regular fa-comment fa-xl"></i>
                             </div> */}
-                            <p className='post-like-section'>10 likes</p>
+                            <p className='post-like-section'>1,302,492 likes</p>
                             <div className='post-owner-bio-container'>
                                 <span className='post-owner-username-section'>israelarvizu</span>
                                 <span className='post-owner-bio-section'>I'm a 21 year old software engineer from Orange County, CA.

@@ -68,8 +68,14 @@ body{
 .modal-comments-container{
     height: 88.5%;
     width: 100%;
-    overflow-x: auto;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.modal-comments-container::-webkit-scrollbar {
+    display: none;
+  }
 
 .modal-add-comments-container{
     height: 5%;
@@ -148,7 +154,7 @@ body{
     display: flex;
     flex-direction: row;
     margin: 15px;
-
+    overflow: hidden;
 }
 
 .modal-comment-image-container{
@@ -185,9 +191,9 @@ body{
 }
 
 .comment-content-user-caption{
-    width: 100%;
+    width: 80%;
     overflow-wrap: break-word;
-    margin-left: 11px;
+    /* margin-left: 11px; */
 }
 
 .post-comment-content-box{
@@ -212,4 +218,10 @@ body{
     display: flex;
     flex-direction: row;
     font-size: 14px;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.comment-caption-modal{
+    word-wrap: break-word;
 }

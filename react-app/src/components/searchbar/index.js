@@ -21,7 +21,8 @@ export default function SearchBar() {
         setInput(textInput)
         if(textInput){
             setResults([])
-            const result = userList.filter(user => user.username.startsWith(textInput))
+            let inputSearch = textInput.toLowerCase();
+            const result = userList.filter(user => user.username.toLowerCase().startsWith(inputSearch))
             if(result.length <= 0){
                 setNoResults(true)
                 setListDropDown(true)
@@ -66,8 +67,8 @@ export default function SearchBar() {
                         )
                         })}
                     {noResults &&
-                        <div>
-                            <p>No results found.</p>
+                        <div className="searchbox-noResults-container">
+                            <p id='no-results-content'>No results found.</p>
                         </div>
                     }
                 </div>}
