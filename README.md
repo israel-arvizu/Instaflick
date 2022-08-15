@@ -21,7 +21,7 @@ Start Socializing Today at [InstaFlick](https://insta-flick.herokuapp.com/)
 
 ## Technologies Used
 #### Front End: -React, -HTML5, -JavaScript, -Redux
-#### Back End: -Python, -Node.JS, -Sequelize, -Express.JS, -GIT, -PostGres -AWS S3 Buckets
+#### Back End: -Python, -Node.JS, -Sequelize, -GIT, -PostGres -AWS S3 Buckets
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -40,7 +40,7 @@ Im hoping to implement these feautures
 
 # Getting Started with the Repo
 1. Clone or download this repo https://github.com/israel-arvizu/Instaflick.git
-2. pipenv install ``--dev -r dev-requirements.txt && pipenv install -r requirements.txt``
+2. pipenv install ``--dev -r dev-requirements.txt`` && pipenv install ``-r requirements.txt``
 3. Setup your PostgreSQL user, password and database and make sure it matches your .env file
 4. Add an ``.env`` file and update with the required information, look at ``.env-example`` for infomation
 5. Get into your pipenv, migrate your database, seed your database, and run your flask app
