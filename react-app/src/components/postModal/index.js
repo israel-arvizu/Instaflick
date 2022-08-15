@@ -105,7 +105,7 @@ export default function Modal({onClose, post}){
                                             <textarea
                                                 className='comment-edit-box'
                                                 // value={caption}
-                                                placeholder={postCapt}
+                                                placeholder={postCapt.length > 0 ? postCapt : "Add a caption"}
                                                 onChange={(e) => setCaption(e.target.value)}
                                                 required
                                                 maxLength="100"/>

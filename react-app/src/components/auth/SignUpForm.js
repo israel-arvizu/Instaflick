@@ -98,6 +98,8 @@ const SignUpForm = () => {
                       className='login-input-container'
                       type='email'
                       name='email'
+                      minlength="3"
+                      maxlength="40"
                       placeholder='Email'
                       onChange={updateEmail}
                       value={email}
@@ -148,6 +150,7 @@ const SignUpForm = () => {
                       name='repeat_password'
                       placeholder='Confirm Password'
                       minlength='5'
+                      maxLength='80'
                       onChange={updateRepeatPassword}
                       value={repeatPassword}
                       required={true}
