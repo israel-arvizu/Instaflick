@@ -9,10 +9,10 @@ function NavDropDown({user}) {
                     <i class="fa-regular fa-circle-user" id='icon-person-section' ></i>
                     <p className='drop-p-tag-section'>Profile</p>
                 </a>
-                <div className='dropdown-section'>
-                    <i class="fa-solid fa-gear"></i>
-                    <a className='drop-anchor-tag-section' href='/about-us'>About Us</a>
-                </div>
+                <a className='dropdown-section-profile-aboutUs' href={`/about-us`}>
+                    <i class="fa-regular fa-circle-question" id='icon-person-section'></i>
+                    <p className='drop-p-tag-section'>About Us</p>
+                </a>
                 <LogoutButton />
             </div>
         );

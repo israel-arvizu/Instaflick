@@ -68,7 +68,7 @@ const LoginForm = () => {
                   className='login-input-container'
                   name='email'
                   type='email'
-                  placeholder='Email or Username'
+                  placeholder='Email'
                   value={email}
                   onChange={updateEmail}
                   required
