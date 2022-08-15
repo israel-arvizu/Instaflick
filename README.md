@@ -1,7 +1,7 @@
 # InstaFlick
 An Instagram Clone that is made exactly like instgram to post pictures and comment to socialize and meet new people from all over the world! Please not that this is not associated with instagram and is just a educational project.
 
-Start Socializing Today at https://insta-flick.herokuapp.com/
+Start Socializing Today at [InstaFlick](https://insta-flick.herokuapp.com/)
 
 ## SplashPage/Log-in
 ![image](https://user-images.githubusercontent.com/99637335/184594897-1db32792-f5ca-4c9c-b927-33de6ee50a9e.png)
@@ -31,7 +31,6 @@ Start Socializing Today at https://insta-flick.herokuapp.com/
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 ![Amazon S3](https://img.shields.io/badge/-Amazon%20S3-569A31?logo=amazons3&logoColor=white&style=for-the-badge)
-Hosted on Heroku
 
 ## Future Feautures
 Im hoping to implement these feautures
