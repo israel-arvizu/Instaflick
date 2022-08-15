@@ -37,3 +37,16 @@ Im hoping to implement these feautures
 - Likes
 - Followers
 - Explore Page
+
+# Getting Started with the Repo
+1. Clone or download this repo https://github.com/israel-arvizu/Instaflick.git
+2. pipenv install ``--dev -r dev-requirements.txt && pipenv install -r requirements.txt``
+3. Setup your PostgreSQL user, password and database and make sure it matches your .env file
+4. Add an ``.env`` file and update with the required information, look at ``.env-example`` for infomation
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+  ``pipenv shell``
+  ``flask db upgrade``
+  ``flask seed all``
+  ``flask run``
+6. Start your react front-end with npm start command 
+8. Done! Just navigate to where you set up your locahost in the `.env` file
