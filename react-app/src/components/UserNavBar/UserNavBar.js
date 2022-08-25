@@ -35,7 +35,7 @@ function UserNavBar({user}) {
                     <a href='/posts/new' style={{color: 'black'}}>
                         <i class="fa-regular fa-square-plus fa-fw" style={{marginRight: '10px', marginLeft: '10px', fontSize: "27px"}}></i>
                     </a>
-                    <div onClick={() => setDropDown(!dropDown)} ref={ref}>
+                    <div onClick={() => setDropDown(!dropDown)} ref={ref} className="nav-bar-image-container">
                         <img src={user.profile_picture} id='nav-bar-user-picture' alt='Profile Picture'/>
                         {dropDown && <NavDropDown user={user}/>}
                     </div>

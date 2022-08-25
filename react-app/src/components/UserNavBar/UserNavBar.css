@@ -154,3 +154,35 @@
 .log-out-button-main:hover{
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 480px) {
+    #nav-logo-image{
+        width: 100px;
+    }
+
+    #nav-bar-search-container{
+       display: none;
+    }
+
+    .nav-bar-content {
+        width: 100%;
+        justify-content: space-between;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .nav-bar-image-container{
+        width:100%;
+    }
+
+    #nav-bar-user-picture{
+        width: 50%;
+        height: 50%;
+        border-radius:50%;
+        margin-left: 8px;
+        margin-right: 5px;
+        object-fit: cover;
+        min-width: 24px;
+    }
+}
