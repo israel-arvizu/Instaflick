@@ -5,6 +5,7 @@
 #home-right-container{
     margin-left: 20px;
 }
+
 .homepage-layout-container{
     display: flex;
     flex-direction: row;
@@ -179,4 +180,100 @@
     margin: 0px;
     margin-left: 10px;
     color: #A2A2A2;
+}
+
+/* TO WORK WITH PHONES */
+
+@media screen and (max-width: 480px){
+    #home-right-container{
+        display: none;
+    }
+
+    #home-post-left-container{
+        width: 100%;
+    }
+
+    .homepage-layout-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .post-article-container{
+        width: 80%;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .post-header{
+        width: 100%;
+    }
+
+    .post-picture-content{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+
+    .post-bottom-content{
+        padding-right: 0px;
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .post-like-section{
+        margin-left: 10px;
+    }
+
+    .post-owner-username-section{
+        margin-left: 10px;
+    }
+
+    .post-bottom-comments-head{
+        margin-left: 10px;
+    }
+
+    .post-bottom-dateCreated{
+        margin-left: 10px;
+    }
+
+    .post-bottom-comment-sect{
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .form-comments-container{
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+    }
+
+    .post-bottom-comment-box{
+        width: 100%;
+        margin-left: 5px;
+        border: none;
+        color: #ADADAD;
+        font-size: 14px;
+        background-color: #FFFFFF;
+        outline: none;
+    }
+
+    .post-comment-btn{
+        width: 15%;
+    }
+
+    .post-comments-unactive{
+        width: 15%;
+    }
+
+}
+
+@media screen and (max-width: 680px){
+
+    #home-right-container{
+        display: none;
+    }
+
+    #nav-bar-search-container{
+        display: none;
+     }
 }
