@@ -68,6 +68,8 @@
     margin-left: 8px;
     margin-right: 5px;
     object-fit: cover;
+    min-width: 28px;
+    min-height: 28px;
 }
 
 #nav-bar-user-picture:hover{

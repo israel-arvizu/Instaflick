@@ -226,3 +226,28 @@ body{
 .comment-caption-modal{
     word-wrap: break-word;
 }
+
+
+/* MOBILE COMPABILITY  */
+
+@media screen and (max-width: 480px) {
+    .modal-content{
+        width: 80%;
+        height: 60%;
+        margin: auto;
+        margin-top: 30%;
+    }
+
+    #modal-comments-emoji-content{
+       display: none;
+    }
+}
+
+@media screen and (max-width: 860px) and (min-width: 481px) {
+    .modal-content{
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        margin-top: 8%;
+    }
+}
