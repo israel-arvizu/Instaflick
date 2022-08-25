@@ -266,3 +266,14 @@
     }
 
 }
+
+@media screen and (max-width: 680px){
+
+    #home-right-container{
+        display: none;
+    }
+
+    #nav-bar-search-container{
+        display: none;
+     }
+}
