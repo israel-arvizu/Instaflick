@@ -38,7 +38,6 @@ function ProfilePage() {
         setEditModal(false)
     }
 
-    //close
     useEffect(() => {
         (async() => {
             const userData = await dispatch(getUser(username))
