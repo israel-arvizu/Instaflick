@@ -23,7 +23,7 @@ export default function AddComment({post}) {
     return (
         <div className='post-bottom-comment-sect'>
             <i class="fa-regular fa-face-smile fa-xl" style={{marginRight: '5px', marginLeft: '7px'}}></i>
-            <form onSubmit={(e) => processComment(e)}>
+            <form onSubmit={(e) => processComment(e)} className="form-comments-container">
                 <input
                 type='text'
                 className='post-bottom-comment-box'
