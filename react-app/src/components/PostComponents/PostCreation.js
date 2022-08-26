@@ -12,6 +12,7 @@ function PostCreation() {
     const [btnText, setBtnText] = useState("Select from computer")
     const [bio, setBio] = useState('')
     const [activePost, setActivePost] = useState(false)
+    const [wordCount, setWordCount] = useState(0)
     const user = useSelector(state => state.session.user)
 
     const processPost = async (e) => {
@@ -32,6 +33,12 @@ function PostCreation() {
         setImage(file)
         setBtnText("Change Image")
         setActivePost(true)
+    }
+
+    const updateCaption = (e) => {
+        setBio(e.target.value);
+        console.log(e.target.value.length)
+        setWordCount(e.target.value.length)
     }
         return (
             <>
@@ -71,8 +78,11 @@ function PostCreation() {
                                     name='postBio'
                                     placeholder='Write a caption...'
                                     maxLength='100'
-                                    onChange={e => setBio(e.target.value)}
+                                    onChange={(e) => updateCaption(e)}
                                     />
+                                    <div className='bottom-post-bio-wordcount'>
+                                        {wordCount}/100
+                                    </div>
                                 </div>
                                 <div className='bottom-post-submit-section'>
                                     {activePost ? <button className='submit-post-button' type='submit'>Done</button> :

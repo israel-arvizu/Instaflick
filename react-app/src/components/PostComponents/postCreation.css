@@ -84,13 +84,15 @@
 }
 
 #post-input-bio-container{
-    width: 80%;
+    width: 88%;
     outline: none;
     border: none;
     height: 35px;
     margin-left: 20px;
     font-family: 'Roboto', 'sans-serif';
     font-size: 15px;
+    overflow-wrap: break-word;
+    overflow-y: auto;
 }
 
 .bottom-post-submit-section{
@@ -126,4 +128,14 @@
 
 .submit-post-button:hover{
     cursor: pointer;
+}
+
+.bottom-post-bio-wordcount{
+    padding-top: 10px;
+    color: #d2d2d2;
+}
+
+.bottom-post-bio-wordcount:hover{
+    color: black;
+    cursor: default;
 }

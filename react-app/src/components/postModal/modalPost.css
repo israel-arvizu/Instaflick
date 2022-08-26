@@ -227,6 +227,11 @@ body{
     word-wrap: break-word;
 }
 
+.form-input-wordCount{
+    font-size: 15px;
+    color: #a8a5a5;
+}
+
 
 /* MOBILE COMPABILITY  */
 
@@ -241,6 +246,8 @@ body{
     #modal-comments-emoji-content{
        display: none;
     }
+
+
 }
 
 @media screen and (max-width: 860px) and (min-width: 481px) {
