@@ -22,10 +22,6 @@ export default function AboutUs (){
                                 <img src='/static/PortraitPicture.png' className='homepage-post-image' style={{backgroundColor: "#cfdddd"}}/>
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '90%'}}>
-                                {/* <div className='favorite-buttons-container'>
-                                <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
-                                <i class="fa-regular fa-comment fa-xl"></i>
-                                </div> */}
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>1,302,492 likes</p>
                                 <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
@@ -52,10 +48,6 @@ export default function AboutUs (){
                                 <img src='/static/aboutUs-2.jpg' className='homepage-post-image' style={{backgroundColor: "#cfdddd"}}/>
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '70%'}}>
-                                {/* <div className='favorite-buttons-container'>
-                                <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
-                                <i class="fa-regular fa-comment fa-xl"></i>
-                                </div> */}
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>402,290 likes</p>
                                 <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
@@ -82,10 +74,6 @@ export default function AboutUs (){
                                 <img src='/static/aboutUs-1.JPG' className='homepage-post-image' style={{backgroundColor: "#cfdddd"}}/>
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '70%'}}>
-                                {/* <div className='favorite-buttons-container'>
-                                <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
-                                <i class="fa-regular fa-comment fa-xl"></i>
-                                </div> */}
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>805,292 likes</p>
                                 <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
