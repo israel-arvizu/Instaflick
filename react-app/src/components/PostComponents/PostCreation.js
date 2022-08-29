@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createPost } from '../../store/posts';
+import { RotatingLines } from  'react-loader-spinner'
 import UserNavBar from '../UserNavBar/UserNavBar'
 import './postCreation.css'
 
@@ -13,10 +14,12 @@ function PostCreation() {
     const [bio, setBio] = useState('')
     const [activePost, setActivePost] = useState(false)
     const [wordCount, setWordCount] = useState(0)
+    const [loading, setLoading] = useState(false)
     const user = useSelector(state => state.session.user)
 
     const processPost = async (e) => {
         e.preventDefault()
+        setLoading(true)
         const postData = new FormData();
         const today = new Date()
         postData.append("image", image)
@@ -25,6 +28,7 @@ function PostCreation() {
         postData.append("updatedAt", today)
         await dispatch(createPost(postData))
         history.push(`/${user.username}`)
+        setLoading(false)
     }
 
 
@@ -85,8 +89,17 @@ function PostCreation() {
                                     </div>
                                 </div>
                                 <div className='bottom-post-submit-section'>
-                                    {activePost ? <button className='submit-post-button' type='submit'>Done</button> :
-                                    <label className='submit-post-unactive-label'>Please upload an image</label>}
+                                    {activePost ?
+                                        <button className='submit-post-button' type='submit'>
+                                        {loading ?
+                                        <RotatingLines
+                                        strokeColor='white'
+                                        strokeWidth='4'
+                                        width='20'
+                                        animationDuration='1'
+                                        /> : "Done"}
+                                        </button>
+                                        : <label className='submit-post-unactive-label'>Please upload an image</label>}
                                 </div>
                             </form>
                         </div>

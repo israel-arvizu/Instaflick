@@ -96,7 +96,8 @@ const LoginForm = () => {
               </div>
               <div id='logo-container-login'>
                 <button id='login-form-submit-btn' type='submit'>
-                  {loading ? <RotatingLines
+                  {loading ?
+                  <RotatingLines
                     strokeColor='white'
                     strokeWidth='4'
                     width='20'

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../../store/session";
+import { RotatingLines } from  'react-loader-spinner'
 import './editProfileModal.css'
 
 export default function EditProfile({user, onClose}) {
@@ -11,6 +12,7 @@ export default function EditProfile({user, onClose}) {
     const [photo, setPhoto] = useState([])
     const [bio, setBio] = useState(userBio)
     const [change, setChange] = useState(false)
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
 
     function closeModal(){
@@ -21,20 +23,24 @@ export default function EditProfile({user, onClose}) {
         document.getElementById('file').click()
     }
 
-    const changeProfile = () => {
+    const changeProfile = async () => {
         if(bio === userBio && photo !== undefined && photo.length <= 0){
             setChange(false)
         }else{
             if(!bio){
                 setBio("")
+                return
             }
+            setLoading(true)
             let formData = new FormData()
             formData.append('image', photo)
             formData.append('bio', bio)
-            dispatch(updateProfile(formData, photo, bio))
+            await dispatch(updateProfile(formData, photo, bio))
             onClose()
+            setLoading(false)
+            window.location.reload()
+            return
         }
-        window.location.reload()
     }
 
     const changeBio = (e) => {
@@ -56,8 +62,9 @@ export default function EditProfile({user, onClose}) {
                         <form onSubmit={changeProfile} className="modal-options-form">
                             <div className="modal-options-container">
                                 <div className="form-label-edit-container">
-                                <label id='form-label-edit-header'>Change Profile Photo</label>
+                                <label id='form-label-edit-header'>Edit Profile</label>
                                 </div>
+                                <input type="button" id="loadProfilePic" value="Change Profile Photo" onClick={() => submitEdit()} />
                                 <div id='form-label-bio-box'>
                                     <label id='form-bio-label-text'>Bio</label>
                                     <textarea
@@ -68,15 +75,24 @@ export default function EditProfile({user, onClose}) {
                                     maxLength='100'
                                     onChange={changeBio}/>
                                 </div>
-                                <input type="button" id="loadProfilePic" value="Upload Photo" onClick={() => submitEdit()} />
                                 <input
                                 type="file"
                                 style={{display: "none"}}
                                 accept=".png, .jpg, .jpeg"
                                 onChange={addImage}
                                 id="file" name="file"/>
-                                {change ? <button type="submit" id="submitEditActive">Save Changes</button>
-                                : <label id="submitEditUnActive">*Please add an image or edit caption*</label>}
+                                {/* {change ? <button type="submit" id="submitEditActive">Save Changes</button>
+                                : <label id="submitEditUnActive">*Please add an image or edit caption*</label>} */}
+                                {change ? <button type="submit" id="submitEditActive">
+                                {loading ?
+                                <RotatingLines
+                                    strokeColor='gray'
+                                    strokeWidth='4'
+                                    width='20'
+                                    animationDuration='1'
+                                /> : "Submit"}
+                                </button>
+                                : <label id="submitEdit">Submit</label>}
                                 {/* <button type="submit" id={change ? "submitEditActive" : "submitEdit"}>Submit</button> */}
                             </div>
                         </form>
