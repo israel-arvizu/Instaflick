@@ -45,14 +45,9 @@ function Homepage()  {
 
   return (
     <>
-        <UserNavBar user={user}/>
+        <UserNavBar user={user} home="true"/>
         <div className='homepage-layout-container'>
           <div id='home-post-left-container'>
-            {/* <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div> */}
             {recentPost.map((post) => {
               return (
                 <div className='post-article-container'>
