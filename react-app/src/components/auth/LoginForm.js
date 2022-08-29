@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { RotatingLines } from  'react-loader-spinner'
 import './loginform.css'
 
 const LoginForm = () => {
@@ -9,15 +10,18 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [buttonText, setButtonText] = useState('Log In')
+  const [loading, setLoading] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
+    setLoading(false)
   };
 
   const demoLogin = async (e) => {
@@ -38,6 +42,10 @@ const LoginForm = () => {
     setErrors([])
     setButtonText('Log In')
     setPassword(e.target.value);
+  };
+
+  const override = {
+    width: "80%"
   };
 
   if (user) {
@@ -87,7 +95,14 @@ const LoginForm = () => {
                 />
               </div>
               <div id='logo-container-login'>
-                <button id='login-form-submit-btn' type='submit'>{buttonText}</button>
+                <button id='login-form-submit-btn' type='submit'>
+                  {loading ? <RotatingLines
+                    strokeColor='white'
+                    strokeWidth='4'
+                    width='20'
+                    animationDuration='1'
+                  /> : buttonText}
+                </button>
               </div>
             </div>
           </form>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { login } from '../../store/session';
+import { RotatingLines } from  'react-loader-spinner'
 import './signup.css'
 
 const SignUpForm = () => {
@@ -11,18 +12,22 @@ const SignUpForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false)
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setLoading(true)
     if (password === repeatPassword) {
       const data = await dispatch(signUp(name, username, email, password));
       if (data) {
         setErrors(data)
       }
+      setLoading(false)
     }else {
+      setLoading(false)
       setErrors(["Error: Passwords dont match!"])
     }
   };
@@ -160,7 +165,14 @@ const SignUpForm = () => {
                     <p className='bottom-text-warning-one'>Please note that is not intended for commerical purposes or is anyway associated with Instagram© </p>
                     <p className='bottom-text-warning-one'>This website is for educational purposes only and any images or content belong to the original owner</p>
                   </div>
-                  <button id='login-form-submit-btn' type='submit'>Sign Up</button>
+                  <button id='login-form-submit-btn' type='submit'>
+                  {loading ? <RotatingLines
+                    strokeColor='white'
+                    strokeWidth='4'
+                    width='20'
+                    animationDuration='1'
+                  /> : "Sign Up"}
+                  </button>
               </div>
               </form>
             </div>
