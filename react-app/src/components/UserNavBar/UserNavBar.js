@@ -5,15 +5,9 @@ import NavDropDown from './NavDropDown';
 import './UserNavBar.css'
 
 function UserNavBar({user, home}) {
-    if(home !== undefined){
-        console.log(home)
-        console.log("true")
-    }
-    if(home === undefined){
-        console.log("NOT GOME")
-    }
     const [dropDown, setDropDown] = useState(false)
     const ref = useRef()
+
     useEffect(() => {
         const checkIfClickedOutside = (e) => {
             if(dropDown && ref.current && !ref.current.contains(e.target)){

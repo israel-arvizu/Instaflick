@@ -4,6 +4,7 @@ import UserNavBar from '../UserNavBar/UserNavBar';
 import AddComment from '../comments';
 import { getRecentPost } from '../../store/posts';
 import Modal from '../../components/postModal'
+import { updateLikes } from '../../store/posts';
 import './homepage.css'
 import { getRecommendedUsers } from './helperFunctions';
 
@@ -26,6 +27,10 @@ function Homepage()  {
   function closeModal() {
     setModalOpen(false)
     dispatch(getRecentPost())
+  }
+
+  function processLike(postId) {
+    dispatch(updateLikes(user.id, postId))
   }
 
   useEffect(() => {
@@ -59,10 +64,10 @@ function Homepage()  {
                     <img src={post.photoUrl} className='homepage-post-image'/>
                   </div>
                   <div className='post-bottom-content'>
-                    {/* <div className='favorite-buttons-container'>
-                      <i class="fa-regular fa-heart fa-xl" style={{marginRight: '10px'}}></i>
-                      <i class="fa-regular fa-comment fa-xl"></i>
-                    </div> */}
+                    <div className='favorite-buttons-container'>
+                      <i class="fa-regular fa-heart fa-xl" id="post-like-button" onClick={() => processLike(post.id)}></i>
+                      <i class="fa-regular fa-comment fa-xl" onClick={() => selectPost(post)}></i>
+                    </div>
                     <p className='post-like-section'>{post.likes} likes</p>
                     <div className='post-owner-bio-container'>
                       <span className='post-owner-username-section'>{post.OwnerUsername}</span>
