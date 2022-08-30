@@ -183,11 +183,25 @@
 }
 
 #post-like-button{
-    margin-right: 15px
+    margin-right: 15px;
+}
+
+#post-like-button-grayed{
+    margin-right: 15px;
+    color: #ac2b2b;
+}
+
+.favorite-buttons-container > svg{
+    cursor: pointer;
+}
+
+#post-like-button:active{
 }
 
 .favorite-buttons-container{
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
 }
 
 /* TO WORK WITH PHONES */

@@ -21,8 +21,6 @@ def createPost():
     form['createdAt'].data = date_time
     form['updatedAt'].data = date_time
 
-    print('-------------------')
-    print(request.files)
 
     if "image" not in request.files:
         return {"errors": "image required"}, 400
