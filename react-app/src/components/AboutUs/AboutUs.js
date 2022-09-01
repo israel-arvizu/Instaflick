@@ -23,7 +23,7 @@ export default function AboutUs (){
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '90%'}}>
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>1,302,492 likes</p>
-                                <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
+                                <div className='post-owner-bio-container-aboutUs' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
                                     <span className='post-owner-bio-section'>I'm a 21 year old software engineer from Orange County, CA.
                                     My passion is all-things tech and I cant wait to keep improving my skills and see what I am able to accomplish</span>
@@ -49,7 +49,7 @@ export default function AboutUs (){
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '70%'}}>
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>402,290 likes</p>
-                                <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
+                                <div className='post-owner-bio-container-aboutUs' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
                                     <span className='post-owner-bio-section'>I love to experience new things, meet new people, and create spontaneous
                                     adventures. That is part of the reason why I love programming so much! There are so many possibilities with what you can do.</span>
@@ -75,7 +75,7 @@ export default function AboutUs (){
                             </div>
                             <div className='post-bottom-content-aboutUs' style={{borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', width: '70%'}}>
                                 <p className='post-like-section' style={{marginLeft: '13px'}}>805,292 likes</p>
-                                <div className='post-owner-bio-container' style={{marginLeft: '13px', marginRight: '13px'}}>
+                                <div className='post-owner-bio-container-aboutUs' style={{marginLeft: '13px', marginRight: '13px'}}>
                                     <span className='post-owner-username-section'>israelarvizu</span>
                                     <span className='post-owner-bio-section'>I enjoy to travel, since I was a young my parents would take my family
                                     on trips every summer. I have been Mexico, France, Poland, Germany, Costa Rica, Israel and many other places. Hopefully

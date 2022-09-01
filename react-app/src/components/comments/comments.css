@@ -33,6 +33,8 @@
     font-size: 15px;
     font-weight: 600;
     color: #0095F7;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .post-comments-unactive{
@@ -71,6 +73,10 @@
     display: flex;
     flex-direction: row;
     width: 90%;
+}
+
+#form-modal-comment{
+    width: 89%;
 }
 
 #modal-comments-emoji-content{

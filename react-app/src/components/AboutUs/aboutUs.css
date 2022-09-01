@@ -48,11 +48,19 @@
 #aboutUs-github-Logo{
     width: 4.7vmin;
     height: 4.7vmin;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 #aboutUs-linkedIn-Logo{
     width: 3vmin;
     height: 3vmin;
+    min-width: 31px;
+    min-height: 31px;
+}
+
+.post-owner-bio-container-aboutUs{
+    width: 95%;
 }
 
 #return-aboutUs-button{

@@ -182,6 +182,28 @@
     color: #A2A2A2;
 }
 
+#post-like-button{
+    margin-right: 15px;
+}
+
+#post-like-button-grayed{
+    margin-right: 15px;
+    color: #ac2b2b;
+}
+
+.favorite-buttons-container > svg{
+    cursor: pointer;
+}
+
+#post-like-button:active{
+}
+
+.favorite-buttons-container{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
 /* TO WORK WITH PHONES */
 
 @media screen and (max-width: 480px){
@@ -224,8 +246,13 @@
         margin-left: 10px;
     }
 
-    .post-owner-username-section{
+    /* .post-owner-username-section{
         margin-left: 10px;
+    } */
+
+    .post-owner-bio-container{
+        width: 95%;
+        padding-left: 10px;
     }
 
     .post-bottom-comments-head{
@@ -260,6 +287,11 @@
 
     .post-comments-unactive{
         width: 15%;
+    }
+
+    .favorite-buttons-container{
+        margin-bottom: 15px;
+        margin-left: 10px;
     }
 
 }

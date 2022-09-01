@@ -25,7 +25,7 @@ class Post(db.Model):
             "photoUrl": self.photoUrl,
             "postBio": self.postBio,
             "comments": self.commentCount,
-            "likes": self.likeCount,
+            "likes": [like.to_dict() for like in list(Like.query.filter(self.id == Like.postId).all())],
             "dateCreated": self.dateCreated,
             "UserPhotoUrl": User.query.get(self.userId).profile_picture,
             "OwnerUsername": User.query.get(self.userId).username

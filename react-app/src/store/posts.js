@@ -115,8 +115,29 @@ export const getUsersPost = (userId) => async (dispatch) => {
   } else {
     return ['An error occurred. Please try again.']
   }
-
 }
+
+export const updateLikes = (userId, postId) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${postId}/likes`,{
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({userId, postId})
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadPosts(data))
+    return null;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  }
+}
+
 
 let initialState = {}
 export default function postReducer(state=initialState, action) {

@@ -30,9 +30,11 @@
 }
 
 .result-dropdown-picture{
-    width: 6vmin;
-    height: 6vmin;
+    width: 5vmin;
+    height: 5vmin;
     border-radius:50%;
+    justify-content: center;
+    object-fit: cover;
 }
 
 .result-dropdown-name-cont{

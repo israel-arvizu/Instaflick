@@ -67,7 +67,7 @@ body{
 }
 
 .modal-comments-container{
-    height: 88.5%;
+    height: 78.5%;
     width: 100%;
     overflow-y: auto;
     -ms-overflow-style: none;
@@ -79,7 +79,7 @@ body{
   }
 
 .modal-add-comments-container{
-    height: 5%;
+    height: fit-content;
     display: flex;
     align-items: flex-end;
 }
@@ -232,6 +232,39 @@ body{
     color: #a8a5a5;
 }
 
+.post-information-container{
+    border-top: 1px solid #EFEFEF;
+    padding-left: 17px;
+    padding-right: 5px;
+    height: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 1%;
+}
+
+.post-info-icon-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-info-icon-btns > svg {
+    cursor: pointer;
+}
+
+.post-info-like-count{
+    font-size: 15px;
+    font-weight: 500;
+    color: #262626;
+}
+
+.post-info-date-created{
+    font-size: 12px;
+    font-weight: 500;
+    color: #bfbfbf;
+}
+
 
 /* MOBILE COMPABILITY  */
 
@@ -247,7 +280,26 @@ body{
        display: none;
     }
 
+    .form-input-wordCount{
+        margin-top: 2px;
+        font-size: 10px;
+    }
 
+    .post-bottom-comment-box{
+        width: 100%;
+    }
+
+    #form-modal-comment{
+        width: 100%;
+    }
+
+    .modal-comments-container{
+        height: 83.5%;
+    }
+
+    .post-information-container{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 860px) and (min-width: 481px) {
@@ -257,4 +309,19 @@ body{
         margin: auto;
         margin-top: 8%;
     }
+
+    .modal-comments-container{
+        height: 77.5%;
+    }
+}
+
+@media screen and (max-width: 519px) and (min-width: 481px){
+    .post-information-container{
+        display: none;
+    }
+
+    .modal-comments-container{
+        height: 86%;
+    }
+
 }
