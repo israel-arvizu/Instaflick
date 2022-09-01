@@ -67,7 +67,7 @@ body{
 }
 
 .modal-comments-container{
-    height: 80%;
+    height: 78.5%;
     width: 100%;
     overflow-y: auto;
     -ms-overflow-style: none;
@@ -79,7 +79,7 @@ body{
   }
 
 .modal-add-comments-container{
-    height: 5%;
+    height: fit-content;
     display: flex;
     align-items: flex-end;
 }
@@ -292,6 +292,14 @@ body{
     #form-modal-comment{
         width: 100%;
     }
+
+    .modal-comments-container{
+        height: 83.5%;
+    }
+
+    .post-information-container{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 860px) and (min-width: 481px) {
@@ -301,15 +309,19 @@ body{
         margin: auto;
         margin-top: 8%;
     }
+
+    .modal-comments-container{
+        height: 77.5%;
+    }
 }
 
-@media screen and (max-width: 519px){
+@media screen and (max-width: 519px) and (min-width: 481px){
     .post-information-container{
         display: none;
     }
 
     .modal-comments-container{
-        height: 88.5%;
+        height: 86%;
     }
 
 }

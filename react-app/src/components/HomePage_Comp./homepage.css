@@ -246,8 +246,13 @@
         margin-left: 10px;
     }
 
-    .post-owner-username-section{
+    /* .post-owner-username-section{
         margin-left: 10px;
+    } */
+
+    .post-owner-bio-container{
+        width: 95%;
+        padding-left: 10px;
     }
 
     .post-bottom-comments-head{
