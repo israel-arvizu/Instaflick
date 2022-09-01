@@ -125,7 +125,7 @@ function Homepage()  {
                 </div>
             </div>
           </div>
-          {modalOpen && <Modal post={selectedPost} onClose={closeModal} />}
+          {modalOpen && <Modal post={selectedPost} onClose={closeModal} checkLike={checkLike} processLike={processLike}/>}
         </div>
       </>
   );

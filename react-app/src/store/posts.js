@@ -118,8 +118,6 @@ export const getUsersPost = (userId) => async (dispatch) => {
 }
 
 export const updateLikes = (userId, postId) => async (dispatch) => {
-  console.log("THIS IS USER", userId, "ON POST ", postId)
-
   const response = await fetch(`/api/posts/${postId}/likes`,{
   method: 'PUT',
   headers: {

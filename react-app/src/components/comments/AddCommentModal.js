@@ -30,7 +30,7 @@ export default function ModalAddComment({post}) {
     return (
         <div className='modal-bottom-comment-sect'>
             <i class="fa-regular fa-face-smile fa-xl" id="modal-comments-emoji-content"></i>
-            <form onSubmit={(e) => processComment(e)} style={{width: "89%"}}>
+            <form onSubmit={(e) => processComment(e)} id="form-modal-comment">
                 <div className="form-input-comment-container">
                     <input
                     type='text'
