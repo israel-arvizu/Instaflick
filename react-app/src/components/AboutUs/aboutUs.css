@@ -7,11 +7,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(180deg, #75cee9, #e2bee3);
+    background-color: #eeebeb;
+    /* background-image: linear-gradient(180deg, #75cee9, #e2bee3); */
 }
 
 #aboutUs-body-container{
-    background-image: linear-gradient(180deg, #75cee9, #e2bee3);
+    /* background-image: linear-gradient(180deg, #75cee9, #e2bee3); */
     width: 100%;
     height: fit-content;
     margin: 0px;
